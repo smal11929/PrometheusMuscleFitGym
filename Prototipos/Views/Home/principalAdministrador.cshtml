@@ -1,0 +1,177 @@
+﻿@model DataContracts.Usuarios
+@{
+    Layout = null;
+    var rol = ViewBag.Tipo;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>PROMETHEUS GYM</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="PROMETHEUS MUSCLE FIT GYM">
+    <meta name="description" content="Descripción de la WEB">
+    <link href="~/Content/estilosBody.css" rel="stylesheet" />
+    <script src="~/Scripts/misScripts.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/Content/menuPrincipal.css" />
+    <style>
+    </style>
+</head>
+<body style="padding-bottom:0px;padding-top:0px;">
+    <!-- Wrapper -->
+    @if (!string.IsNullOrEmpty(ViewBag.User))
+    {
+        
+        <div id="wrapper" style="margin-top: 50px;">
+
+            <!-- Main -->
+            <section id="main">
+
+                <!-- Thumbnails -->
+
+                <section>
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <div class="navbar-header col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-6 col-md-4 col-sm-6 col-xs-6"></div>
+                                <div class="col-lg-6 col-md-4 col-sm-6 col-xs-6 format">
+                                    <h1 class="" style="font-family: auto;">
+                                        Bienvenido: @ViewBag.User
+                                        <img src="~/Imagenes/PrometheusGym.png" class="userpicture defaultuserpic" width="35" height="35" role="presentation" aria-hidden="true">
+                                    </h1>
+                                    </div>
+                            </div>
+                        </div>
+                    </nav>
+                </section>
+
+                <section class="thumbnails">
+                    <div>
+                        
+                        <div class="contenedor" id="publicar">
+                            <img src="~/Imagenes/publicar.jpg" alt="" />
+                              <div class="centrado" style="margin-top: 50px;">
+                                 <ul style="margin-top:15px;">
+                                     <li class="menu-item sub-menu">
+                                          <h4>@Html.ActionLink("Mantenimiento de eventos", "eventoMantenimiento", "Publicar")</h4>
+                                     </li>
+                                     <li class="menu-item sub-menu">
+                                        <h4>@Html.ActionLink("Mantenimiento de noticias", "noticiasMantenimiento", "Publicar")</h4>
+                                     </li>
+                                     <li class="menu-item sub-menu">
+                                         <h4>@Html.ActionLink("Mantenimiento de ofertas", "mantenimientoOfertas", "Publicar")</h4>
+                                     </li>
+                                 </ul>
+                              </div>
+                                <a href="#"><h3>Publicar</h3></a>
+                        </div>
+                       
+
+
+                        <div class="contenedor">
+                            <img src="~/Imagenes/seguridad.jpg" alt="" />
+                            <div class="centrado" style="margin-top: 20px;">
+                                <ul style="margin-top:20px;">
+                                    <li class="menu-item sub-menu">
+                                        <h4>@Html.ActionLink("Cambiar contraseña", "seguridadCambiarContraseña", "Seguridad")</h4>
+                                    </li>
+                                    <li class="menu-item sub-menu">
+                                        <h4>@Html.ActionLink("Mantenimiento de usuario", "seguridadMantenimientoClientes", "Seguridad")</h4>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#"><h3>Seguridad</h3></a>
+                        </div>
+
+                    </div>
+
+                    <div>
+
+                        <div class="contenedor">
+                            <img src="~/Imagenes/horarios.jpg" alt="" />
+                            <div class="centrado" style="margin-top: 16px;">
+                                <ul style="margin-top:15px;">
+                                    <li class="menu-item sub-menu">
+                                        <h4>@Html.ActionLink("Mantenimiento de clases", "horariosMantenimiento", "Horarios")</h4>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#"><h3>Horarios</h3></a>
+                        </div>
+
+                        <div class="contenedor">
+                            <img src="~/Imagenes/pagos.jpg" alt="" />
+                            <div class="centrado" style="margin-top: 50px;">
+                                <ul style="margin-top:15px;">
+                                    <li class="menu-item sub-menu">
+                                        <h4>@Html.ActionLink("Mantenimiento de pagos", "pagosMantenimiento", "Pagos")</h4>
+                                    </li>
+                                    <li class="menu-item sub-menu">
+                                        <h4>@Html.ActionLink("Consulta de pagos morosos", "pagosConsulta", "Pagos")</h4>
+                                    </li>
+                                    <li class="menu-item sub-menu">
+                                        <h4>@Html.ActionLink("Estimados", "pagosEstimados", "Pagos")</h4>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#"><h3>Pagos</h3></a>
+                        </div>
+
+                        <div class="contenedor">
+                            <img src="~/Imagenes/envios.jpg" alt="" />
+                            <div class="centrado" style="margin-top: 30px;">
+                                <ul style="margin-top:15px;">
+                                    <li class="menu-item sub-menu">
+                                        <h4>@Html.ActionLink("Enviar notificaciones", "notificacionesEnviar", "Envios")</h4>
+                                    </li>
+                                    <li class="menu-item sub-menu">
+                                        <h4>@Html.ActionLink("Enviar mensaje", "mensajeTexto", "Envios")</h4>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#"><h3>Envios</h3></a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="contenedor">
+                            <img src="~/Imagenes/clientes.jpg" alt="" />
+                            <div class="centrado" style="margin-top: 50px;">
+                                <ul style="margin-top:15px;">
+                                    <li class="menu-item sub-menu">
+                                        <h4>@Html.ActionLink("Medidas / Historial médico", "medidasMantenimiento", "Clientes")</h4>
+                                    </li>
+                                    <li class="menu-item sub-menu">
+                                        <h4>@Html.ActionLink("Rutinas", "rutinasMantenimiento", "Clientes")</h4>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#"><h3>Clientes</h3></a>
+                        </div>
+
+                        <div class="contenedor">
+                            <img src="~/Imagenes/cerrar.jpg" alt="" />
+                            <div class="centrado" style="margin-top: 50px;">
+                                <ul style="margin-top:15px;">
+                                    <li class="menu-item sub-menu">
+                                        <h4>@Html.ActionLink("Cerrar sesión", "Cerrar", "Home")</h4>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#"><h3>Cerrar sesión</h3></a>
+                        </div>
+                    </div>
+                </section>
+
+            </section>
+
+
+        </div>
+     } 
+</body>
+</html>
+<script type="text/javascript">
+    
+</script>
+

@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title - PROMETHEUS MUSCLE FIT GYM</title>
+    <link href="~/Content/estilosBody.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <script src="~/Scripts/misScripts.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/main.css">
+</head>
+<body style="padding-top:0px;">
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="container col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color:transparent;">
+                    <div class="navbar-header navbar-left col-lg-5" style="text-align:center;">
+                        <ul style="margin-top:15px;">
+                            <li class="titulo menu-item sub-menu">
+                                <h1>@Html.ActionLink("Prometheus Gym", "principalAdministrador", "Home")</h1>
+                            </li>
+                            <li>
+                                <h1 class="" style="font-family: auto; color:white;">
+                                    Bienvenido: @ViewBag.User
+                                    <img src="~/Imagenes/PrometheusGym.png" class="userpicture defaultuserpic" width="35" height="35" role="presentation" aria-hidden="true">
+                                </h1>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="wrap-login100 col-lg-12 col-md-4 col-sm-6 col-xs-8" style="padding-top:30px;">
+                <div class="container body-content">
+                    @RenderBody()
+
+                </div>
+                @Scripts.Render("~/bundles/jquery")
+                @Scripts.Render("~/bundles/bootstrap")
+                @RenderSection("scripts", required: false)
+            </div>
+            <div class="col-lg-10 col-md-4 col-sm-4 col-xs-4" style="margin-top:25px;">
+                <footer class="footerSection col-lg-12" style="background-color:transparent;">
+                    <div class="container">
+                        <br /><br /><br />
+                        <div class="footerInfo" style="margin-bottom:20px;">
+                            <div class="row">
+
+                                <div class="footerContacto">
+                                    <h5 style="color: white; font-size:3em; margin-bottom:15px;">Publicar</h5>
+
+                                    <ul style="margin-top:15px;">
+                                        <li class="menu-item sub-menu">
+                                            <h3>@Html.ActionLink("Mantenimiento de eventos", "eventoMantenimiento", "Publicar")</h3>
+                                        </li>
+                                        <li class="menu-item sub-menu">
+                                            <h3>@Html.ActionLink("Mantenimiento de noticias", "noticiasMantenimiento", "Publicar")</h3>
+                                        </li>
+                                        <li class="menu-item sub-menu">
+                                            <h3>@Html.ActionLink("Mantenimiento de ofertas", "mantenimientoOfertas", "Publicar")</h3>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="footerContacto" style="margin-left:20%;">
+                                    <h5 style="color: white; font-size:3em; margin-bottom:15px;">Horarios</h5>
+                                    <ul style="margin-top:15px;">
+                                        <li class="menu-item sub-menu">
+                                            <h3>@Html.ActionLink("Mantenimiento de clases", "horariosMantenimiento", "Horarios")</h3>
+                                        </li>
+                                        <li class="menu-item sub-menu">
+                                            <h3>@Html.ActionLink("Entrenador por clase", "horariosEntrenadorClase", "Horarios")</h3>
+                                        </li>
+                                        <li class="menu-item sub-menu">
+                                            <h3>@Html.ActionLink("Cliente por clase", "horariosClienteClase", "Horarios")</h3>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="footerContacto" style="margin-left:20%;">
+                                    <h5 style="color: white; font-size:3em; margin-bottom:15px;">Clientes</h5>
+                                    <ul style="margin-top:15px;">
+                                        <li class="menu-item sub-menu">
+                                            <h3>@Html.ActionLink("Medidas / Historial médico", "medidasMantenimiento", "Clientes")</h3>
+                                        </li>
+                                        <li class="menu-item sub-menu">
+                                            <h3>@Html.ActionLink("Rutinas", "rutinasMantenimiento", "Clientes")</h3>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="footerInfo" style="margin-bottom:20px;">
+                            <div class="row">
+
+                                <div class="footerContacto">
+                                    <h5 style="color: white; font-size:3em; margin-bottom:15px;">Seguridad</h5>
+                                    <ul style="margin-top:20px;">
+                                        <li class="menu-item sub-menu">
+                                            <h3>@Html.ActionLink("Cambiar contraseña", "seguridadCambiarContraseña", "Seguridad")</h3>
+                                        </li>
+                                        <li class="menu-item sub-menu">
+                                            <h3>@Html.ActionLink("Mantenimiento de usuarios", "seguridadMantenimientoClientes", "Seguridad")</h3>
+                                        </li>
+                                        <li class="menu-item sub-menu">
+                                            <h3>@Html.ActionLink("Cerrar sesión", "Index", "Home")</h3>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="footerContacto" style="margin-left:20%;">
+                                    <h5 style="color: white; font-size:3em; margin-bottom:15px;">Pagos</h5>
+                                    <ul style="margin-top:15px;">
+                                        <li class="menu-item sub-menu">
+                                            <h3>@Html.ActionLink("Mantenimiento de pagos", "pagosMantenimiento", "Pagos")</h3>
+                                        </li>
+                                        <li class="menu-item sub-menu">
+                                            <h3>@Html.ActionLink("Pagos morosos", "pagosConsulta", "Pagos")</h3>
+                                        </li>
+                                        <li class="menu-item sub-menu">
+                                            <h3>@Html.ActionLink("Estimados", "pagosEstimados", "Pagos")</h3>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="footerContacto" style="margin-left:20%;">
+                                    <h5 style="color: white; font-size:3em; margin-bottom:15px;">Envios</h5>
+                                    <ul style="margin-top:15px;">
+                                        <li class="menu-item sub-menu">
+                                            <h3>@Html.ActionLink("Enviar notificaciones", "notificacionesEnviar", "Envios")</h3>
+                                        </li>
+                                        <li class="menu-item sub-menu">
+                                            <h3>@Html.ActionLink("Enviar mensaje", "mensajeTexto", "Envios")</h3>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

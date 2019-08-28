@@ -1,0 +1,113 @@
+﻿@model DataContracts.Eventos
+
+<html>
+<head>
+    <title>PROMETHEUS GYM</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="PROMETHEUS MUSCLE FIT GYM">
+    <meta name="description" content="Descripción de la WEB">
+    <link href="~/Content/estilosBody.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <script src="~/Scripts/misScripts.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div style="margin-top: 20px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+
+            <div>
+                <h2>@Html.DisplayFor(model => model.nombre)</h2>
+                <hr />
+                <dl class="dl-horizontal">
+                    <h3>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.nombre)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.nombre)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.fechaPublicacion)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.fechaPublicacion)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.costo)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.costo)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.descripcion)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.descripcion)
+                        </dd>
+                    </h3>
+                </dl>
+            </div>
+
+
+            <hr />
+
+            @*<div>
+            <h2>Comentarios</h2>
+            <hr />
+            <dl class="dl-horizontal">
+                <h3>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.fecha)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.fecha)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.mensaje)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.mensaje)
+                    </dd>
+
+                </h3>
+            </dl>
+        </div>*@
+
+            @using (Html.BeginForm("eventosComentar", "Publicar", FormMethod.Post, new { @class = "form summer" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="commentBox">
+                    <div class="wrapper">
+                        <div class="commentBoxfloat">
+                            <form id="cmnt">
+                                <fieldset>
+                                    <div class="form_grp">
+                                        <label>Comentar</label>
+                                        <textarea id="userCmnt" name="coment" placeholder="Escribir comentario"></textarea> <br /><br />
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <button name="adduser" type="submit" class="btn btn-warning btn-block" id="contact-submit">Comentar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</body>
+</html>

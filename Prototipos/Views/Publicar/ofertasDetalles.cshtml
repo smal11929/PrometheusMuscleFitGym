@@ -1,0 +1,77 @@
+﻿@model DataContracts.Ofertas
+<html>
+<head>
+    <title>PROMETHEUS GYM</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="PROMETHEUS MUSCLE FIT GYM">
+    <meta name="description" content="Descripción de la WEB">
+    <link href="~/Content/estilosBody.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <script src="~/Scripts/misScripts.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div style="margin-top: 20px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+
+            <div>
+                <h2>@Html.DisplayFor(model => model.titulo)</h2>
+                <hr />
+                <dl class="dl-horizontal">
+                    <h3>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.titulo)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.titulo)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.descripcion)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.descripcion)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.porcentaje)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.porcentaje)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.monto)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.monto)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.fechaInicio)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.fechaInicio)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.fechaFin)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.fechaFin)
+                        </dd>
+                    </h3>
+                </dl>
+            </div>
+            <hr />
+            </div>
+        <div class="col-md-2"></div>
+    </div>
+</body>
+</html>

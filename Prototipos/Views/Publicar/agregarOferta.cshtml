@@ -1,0 +1,124 @@
+﻿@model DataContracts.Ofertas
+<html>
+<head>
+    <title>PROMETHEUS GYM</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="PROMETHEUS MUSCLE FIT GYM">
+    <meta name="description" content="Descripción de la WEB">
+    <link href="~/Content/estilosBody.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <script src="~/Scripts/misScripts.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container" style="margin-top:50px;">
+        <form class="form-horizontal" action=" " method="post" id="contact_form">
+            <fieldset>
+                <!-- Form Name -->
+                <class style="text-align:center;">
+                    @using (Html.BeginForm("agregarOferta", "Publicar", FormMethod.Post, new { @class = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <h2>Agregar oferta</h2><br />
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Nombre</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                    @Html.EditorFor(model => model.titulo, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;", @type = "text", @autocomplete = "off" } })
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Descripción</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;", @type = "text", @autocomplete = "off" } })
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Monto</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                                    @Html.EditorFor(model => model.monto, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;", @type = "number", @autocomplete = "off" } })
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Descuento %</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-text-width"></i></span>
+                                    @Html.EditorFor(model => model.porcentaje, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;", @type = "number", @autocomplete = "off" } })
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Fecha de inicio</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                    @Html.EditorFor(model => model.fechaInicio, new { htmlAttributes = new { @id="datepicker", @class = "form-control", @style = "", @required = "required;", @type = "date" } })
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Fecha de finalización</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                    @Html.EditorFor(model => model.fechaFin, new { htmlAttributes = new { @id="datepicker2" ,@class = "form-control", @style = "", @required = "required;", @type = "date" } })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"></label>
+                            <div class="col-md-4">
+                                <button name="adduser" type="submit" class="btn btn-warning btn-block" id="contact-submit">Publicar oferta</button>
+                            </div>
+                        </div>
+                    }
+                </class>
+            </fieldset>
+        </form>
+    </div>
+</body>
+<script>
+
+window.onload = function(){
+  var fecha = new Date(); //Fecha actual
+  var mes = fecha.getMonth()+1; //obteniendo mes
+  var dia = fecha.getDate(); //obteniendo dia
+  var ano = fecha.getFullYear(); //obteniendo año
+  if(dia<10)
+    dia='0'+dia; //agrega cero si el menor de 10
+  if(mes<10)
+    mes='0'+mes //agrega cero si el menor de 10
+    document.getElementById('datepicker').value = ano + "-" + mes + "-" + dia;
+    document.getElementById('datepicker2').value=ano+"-"+mes+"-"+dia;
+}
+
+</script>
+</html>

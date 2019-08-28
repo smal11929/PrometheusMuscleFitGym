@@ -1,0 +1,403 @@
+﻿@model Prototipos.Models.Medidas_Usuarios
+
+<html>
+<head>
+    <title>PROMETHEUS GYM</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="PROMETHEUS MUSCLE FIT GYM">
+    <meta name="description" content="Descripción de la WEB">
+    <link href="~/Content/estilosBody.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <script src="~/Scripts/misScripts.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
+    
+</head>
+<body>
+    <div class="container" style="margin-top:50px;">
+        <form class="form-horizontal" action=" " method="post" id="contact_form">
+            <fieldset>
+                <class style="text-align:center;">
+                    <h2>Médidas físicas</h2><br />
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Cédula</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                @Html.EditorFor(model => model.Usuarios.cedula, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;", @readonly = "readonly" } })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Nombre</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                @Html.EditorFor(model => model.Usuarios.nombre, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;", @readonly = "readonly" } })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Apellidos</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                @Html.EditorFor(model => model.Usuarios.apellido1, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;", @readonly = "readonly" } })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="button">
+                            <input type="button" class="hombre btn btn-warning btn-block" style="width:70%; margin-left:35%;" value="Hombre" />
+                            <input type="button" class="mujer btn btn-warning btn-block" style="width:70%; margin-left:35%;" value="Mujer" />
+                            <br />
+                        </div>
+                        <label class="col-md-4 control-label">Sexo</label>
+                        <div class="col-md-4 selectContainer">
+                            <div class="input-group">
+                                <form class="login-form buttons">
+                                    <span class="input-group" style="width:1px;"><i class=""></i></span>
+
+                                    <div class="form-hombre">
+                                        <label class="col-md-7 control-label">Pliegues pecho</label>
+                                        <div class="col-md-4 inputGroupContainer">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                                @Html.EditorFor(model => model.PlieguesHombres.plieguesPecho, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;" } })
+                                            </div>
+                                        </div><br /><br />
+
+
+                                        <label class="col-md-7 control-label">Pliegues subescapular</label>
+                                        <div class="col-md-4 inputGroupContainer">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                                @Html.EditorFor(model => model.PlieguesHombres.plieguesSubEscapular, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;" } })
+                                            </div>
+                                        </div><br /><br />
+
+
+                                        <label class="col-md-7 control-label">Pliegues abdomen</label>
+                                        <div class="col-md-4 inputGroupContainer">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                                @Html.EditorFor(model => model.PlieguesHombres.plieguesAbdomen, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;" } })
+                                            </div>
+                                        </div><br /><br />
+
+
+                                        <label class="col-md-7 control-label">Pliegues muslo</label>
+                                        <div class="col-md-4 inputGroupContainer">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                                @Html.EditorFor(model => model.PlieguesHombres.plieguesMuslo, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;" } })
+                                            </div>
+                                        </div><br /><br />
+                                    </div>
+
+
+                                    <div class="form-mujer hidden">
+                                        <label class="col-md-7 control-label">Pliegues triceps</label>
+                                        <div class="col-md-4 inputGroupContainer">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                                @Html.EditorFor(model => model.PlieguesMujeres.plieguesTriceps, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;" } })
+                                            </div>
+                                        </div><br /><br />
+
+
+                                        <label class="col-md-7 control-label">Pliegues subescapular</label>
+                                        <div class="col-md-4 inputGroupContainer">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                                @Html.EditorFor(model => model.PlieguesMujeres.plieguesSubEscapular, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;" } })
+                                            </div>
+                                        </div><br /><br />
+
+
+                                        <label class="col-md-7 control-label">Pliegues subpraliaco</label>
+                                        <div class="col-md-4 inputGroupContainer">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                                @Html.EditorFor(model => model.PlieguesMujeres.plieguesSubPrailiaco, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;" } })
+                                            </div>
+                                        </div><br /><br />
+
+
+                                        <label class="col-md-7 control-label">Pliegues muslo</label>
+                                        <div class="col-md-4 inputGroupContainer">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                                @Html.EditorFor(model => model.PlieguesMujeres.plieguesMuslo, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;" } })
+                                            </div>
+                                        </div><br /><br />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Edad</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.edad, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;" } })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Peso en libras</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.pesoLB, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;" } })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Peso en kilos</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.pesoKg, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;" } })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Estatura</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.estatura, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;"} })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Indice de masa corporal</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.imc, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;" } })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Diámetro de húmero</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.diametroHumero, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;" } })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Diámetro de fémur</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.diametroFemur, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;" } })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Peso muscular</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.pesoMuscular, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;" } })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Peso residual</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                               @Html.EditorFor(model => model.Medidas.pesoResidual, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;"} })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Peso en grasa</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.pesoGrasa, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;"} })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Peso óseo</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.pesoOseo, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;"} })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Porcentaje de grasa corporal</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.porcentajeGrasa, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;"} })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Peso libre grasa</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.pesoLibreGrasa, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;"} })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Circunferencia de torax</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.circunferenciaTorax, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;"} })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Circunferencia del brazo</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.circuferenciaBrazo, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;"} })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Circunferencia del antebrazo</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.circunferenciaAntebrazo, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;"} })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Circunferencia de cintura</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.circuferenciaCintura, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;"} })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Circunferencia de cadera</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.circunferenciaCadera, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;"} })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Circunferencia de muslo</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.circunferenciaMuslo, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;"} })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Circunferencia de pierna</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
+                                @Html.EditorFor(model => model.Medidas.circunferenciaPierna, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;"} })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Fecha</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                @Html.EditorFor(model => model.Medidas.fecha, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;"} })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label"></label>
+                        <div class="col-md-4">
+                            <button name="adduser" type="submit" class="btn btn-warning btn-block" id="contact-submit">Descargar</button>
+                            <button name="adduser" type="submit" class="btn btn-warning btn-block" id="contact-submit">Guardar cambios</button>
+                        </div>
+                    </div>
+                </class>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    $('.hombre').bind('click', function () {
+
+        $('.form-hombre').removeClass('hidden');
+        $('.form-mujer').removeClass('hidden');
+        $('.form-hombre').addClass('visible');
+        $('.form-mujer').addClass('hidden');
+
+    })
+
+    $('.mujer').bind('click', function () {
+
+        $('.form-hombre').removeClass('hidden');
+        $('.form-mujer').removeClass('hidden');
+        $('.form-hombre').addClass('hidden');
+        $('.form-mujer').addClass('visible');
+    })
+</script>

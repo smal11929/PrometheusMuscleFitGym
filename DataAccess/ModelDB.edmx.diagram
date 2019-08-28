@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="19baea57f1874c37b9955ddd02805eb0" Name="Diagram1">
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.Auditoria" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.Clases" Width="1.5" PointX="5.25" PointY="40.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.ComentariosEventos" Width="1.5" PointX="8.25" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.ComentariosNoticias" Width="1.5" PointX="8.25" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.Ejercicios" Width="1.5" PointX="0.75" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.Eventos" Width="1.5" PointX="6" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.HistorialMedico" Width="1.5" PointX="5.25" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.Horarios" Width="1.5" PointX="5.25" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.Medidas" Width="1.5" PointX="5.25" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.Mensaje" Width="1.5" PointX="5.25" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.Noticias" Width="1.5" PointX="6" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.Notificaciones" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.Ofertas" Width="1.5" PointX="9" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.PagosRealizados" Width="1.5" PointX="5.25" PointY="37.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.PlieguesHombres" Width="1.5" PointX="7.5" PointY="30.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.PlieguesMujeres" Width="1.5" PointX="7.5" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.referenciaHorarios_referenciaClases" Width="1.5" PointX="7.5" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.referenciaRutinas_referenciaEjercicios" Width="1.5" PointX="3" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.referenciaUsuarios_referenciaEventos" Width="1.5" PointX="10.25" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.referenciaUsuarios_referenciaNotificaciones" Width="1.5" PointX="5.25" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.referenciaUsuarios_referenciaOfertas" Width="1.5" PointX="11.25" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.Rutinas" Width="1.5" PointX="0.75" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.Usuarios" Width="1.5" PointX="3" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.VistaTablaHistorialPlieguesHombres" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMETHEUS_DBModel.VistaTablaHistorialPlieguesMujeres" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_Clase_Horario" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_IDEvento_ComentariosEventos" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_IDUsuario_ComentariosEventos" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_IDNoticia_ComentariosNoticias" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_IDUsuario_ComentariosNoticias" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_Ejercicios" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_IDEvento_referenciaUsuarios_referenciaEventos" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_IDHistorialMedico" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_Horario_Clase" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_IDUsuario_Horario" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_IDEvaluador_Medidas" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_IDPlieguesHombres" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_IDPlieguesMujeres" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_IDUsuario_Medidas" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_IDEmisor" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_IDReceptor" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_Notificaciones_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_Oferta" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_IDusuario" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_Rutina" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_IDUsuario_referenciaUsuarios_referenciaEventos" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_IDUsuario_Notificaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMETHEUS_DBModel.FK_IDusuario_Rutina" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

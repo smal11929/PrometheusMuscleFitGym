@@ -1,0 +1,60 @@
+﻿@model IEnumerable<DataContracts.PagosRealizados>
+
+<html>
+<head>
+    <title>PROMETHEUS GYM</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="PROMETHEUS MUSCLE FIT GYM">
+    <meta name="description" content="Descripción de la WEB">
+    <link href="~/Content/estilosBody.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <script src="~/Scripts/misScripts.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div style="margin-top: 50px;">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            <div class="container">
+                <h2>Mantenimiento de pagos</h2><br /><br />
+                <table class="table table-striped custab">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.monto)</th>
+                            <th>@Html.DisplayNameFor(model => model.montoDescuento)</th>
+                            <th>@Html.DisplayNameFor(model => model.fecha)</th>
+                            <th>@Html.DisplayNameFor(model => model.descuento)</th>
+                            <th class="text-center">Acción</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    { 
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.monto)</td>
+                    <td>@Html.DisplayFor(modelItem => item.montoDescuento)</td>
+                    <td>@Html.DisplayFor(modelItem => item.fecha)</td>
+                    <td>@Html.DisplayFor(modelItem => item.descuento)</td>
+                    <td class="text-center col-lg-12"><a class='btn btn-info btn-xs' href="@Url.Action("modificarPago", "Pagos", new { id = item.ID })" style="margin-right:3px;">><span class="glyphicon glyphicon-edit"></span> Modificar</a><a href="@Url.Action("noticiasComentar", "Publicar", new { id = item.ID })" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-comment"></span> Comentar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                </tr>
+                    }
+
+                </table>
+                <div class="pagination">
+                    <li><a href="#">Prev</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">Next</a></li>
+                </div>
+            </div>
+            <div class="col-lg-4"></div>
+            <div class="col-lg-2">
+                <a class="btn btn-info" href="@Url.Action("agregarPago", "Pagos")"> Agregar nuevo pago</a>
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+        <div class="col-lg-1"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,320 @@
+﻿@model DataContracts.Usuarios
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Inicio de sesión</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="icon" type="image/png" href="~/Imagenes/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="~/Scripts/SweerAlert/sweetalert2.min.css"/>
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/main.css">
+</head>
+<body style="padding-bottom:0px;padding-top:0px;">
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="container col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color:transparent;">
+                    <div class="navbar-header navbar-left col-lg-12">
+                        <input type="button" class="navbar-brand inicio" style="font-size:20px; background-color:transparent;" value="Prometheus Gym">
+                        <a class="navbar-brand" style="font-size:20px;">|</a>
+                        <input type="button" class="navbar-brand nosotros" style="font-size:20px; background-color:transparent;" value="Nosotros">
+                        <a class="navbar-brand" style="font-size:20px;">|</a>
+                        <input type="button" class="navbar-brand historia" style="font-size:20px; background-color:transparent;" value="Historia">
+                        <a class="navbar-brand" style="font-size:20px;">|</a>
+                        <input type="button" class="navbar-brand Contacto" style="font-size:20px; background-color:transparent;" value="Contacto">
+                    </div>
+                </div>
+            </div>
+            <div class="form-inicio wrap-login100 col-lg-9 col-md-9 col-sm-9 colxs-9" style="padding-top:30px;">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="~/Imagenes/PrometheusGym.png" alt="IMG">
+                </div>
+                
+                @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @name = "login", @class = "form", @id = "formLogin" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <span class="login100-form-title">
+                        Inicio de sesión
+                    </span>
+
+                    <!--Text Input-->
+
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                        @Html.EditorFor(model => model.correo, new { htmlAttributes = new {@id="correo", @name = "usuario", @class = "input100", @style = "", @placeholder = "Correo Electrónico", @type = "text", @autocomplete = "off" } })
+                    </div>
+
+                    <!--Text Input-->
+
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                        @Html.EditorFor(model => model.contrasena, new { htmlAttributes = new {@id="contraseña",  @name = "pass", @class = "input100", @style = "", @placeholder = "Contraseña", @type = "password", @autocomplete = "off" } })
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Ingresar
+                        </button>
+                    </div>
+
+                    <div class="text-center p-t-12">
+                        <span class="txt1">
+                            Olvido la contraseña?
+                        </span>
+                    </div>
+                }
+            </div>
+            <div class="wrap-login100 form-nosotros hidden col-lg-9 col-md-9 col-sm-9 col-xs-9" style="padding-top:30px;">
+
+                <span class="login100-form-title">
+                    Gimnasio y academia de Telas en Tejar del Guarco, Cartago, Costa Rica.
+                </span>
+
+                <div class="login100-pic js-tilt col-lg-5" data-tilt style="margin-bottom:20%;">
+                    <img src="~/Imagenes/nosotros.jpg" alt="IMG">
+                </div>
+                <div class="col-lg-7" data-tilt style="margin-bottom:20%;">
+                    <p style="font-size:18px; color:black;">
+                        En Prometheus Muscle Fit Gym nos proponemos brindarle un trato de alta calidad con un personal enfocado en el desarrollo integral del cliente. De esta manera se garantiza un ambiente de confianza, respeto, comodidad y crecimiento, donde el cliente tenga oportunidad de desarrollarse optimamente según sus objetivos.
+
+                    </p>
+                </div>
+            </div>
+            <div class="wrap-login100 form-historia hidden col-lg-9 col-md-9 col-sm-9 col-xs-9" style="padding-top:30px;">
+
+                <span class="login100-form-title">
+                    Nuestra Historia
+                </span>
+
+                <div class="col-lg-7" data-tilt style="margin-bottom:20%;">
+                    <p style="font-size:18px; color:black;">
+                        En Prometheus Muscle Fit Gym nos proponemos brindarle un trato de alta calidad con un personal enfocado en el desarrollo integral del cliente. De esta manera se garantiza un ambiente de confianza, respeto, comodidad y crecimiento, donde el cliente tenga oportunidad de desarrollarse optimamente según sus objetivos.
+                    </p>
+                </div>
+                <div class="login100-pic js-tilt col-lg-5" data-tilt style="margin-bottom:20%;">
+                    <img src="~/Imagenes/historia.jpg" alt="IMG">
+                </div>
+            </div>
+            <div class="wrap-login100 form-Contacto hidden col-lg-9 col-md-9 col-sm-9 col-xs-9" style="padding-top:30px;">
+
+                @using (Html.BeginForm("principalAdministrador", "Home", FormMethod.Post))
+                {
+                    <span class="login100-form-title" style="margin-top:100px">
+                        Contactanos
+                    </span>
+
+                    <div class="wrap-input100 validate-input">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                        @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "input100", @style = "", @required = "required;", @placeholder = "Nombre", @type = "text", @autocomplete = "off" } })
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                        @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @class = "input100", @style = "", @required = "required;", @placeholder = "Correo Electrónico", @type = "text", @autocomplete = "off" } })
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <textarea class="input100" type="text" name="mensaje" placeholder="Mensaje" autocomplete="off" style="resize:none;"></textarea>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-file-text" aria-hidden="true"></i>
+                        </span>
+                        @Html.EditorFor(model => model.Mensaje, new { htmlAttributes = new { @class = "input100", @style = "", @required = "required;", @placeholder = "Mensaje", @type = "text" } })
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn" onclick="validar()">
+                            Enviar mensaje
+                        </button>
+                    </div>
+
+                }
+                <div id="cabecera" class="contenedor col-lg-7 col-md-4 col-xs-6 col-sm-6" style="margin-bottom:20%; padding-top:30px;">
+                    <!--<img src="~/Imagenes/logo.png" alt="IMG" style="width:100%;height:100%;">-->
+                    <video class="banner" muted autoplay loop style="width:100%; margin-top:100px; margin-left:50px;">
+                        <source src="~/Imagenes/banner.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9 colxs-9" style="margin-top:25px;">
+                <footer class="footerSection col-lg-12" style="background-color:transparent;">
+                    <div class="container">
+                        <br /><br /><br />
+                        <div class="footerInfo">
+                            <div class="row">
+
+                                <div class="footerLogo">
+                                    <a href="#" class="logo">
+                                        <!--<img alt="Prometheus" width="157" height="85" src="../Imagenes/gym_Footer.jpg">-->
+                                    </a>
+                                </div>
+
+                                <div class="footerFactura">
+                                    <h5 style="color: white; font-size:18px;">PROMETHEUS GYM</h5><br />
+                                    <ul class="footer_ul_amrc">
+                                        <li style="color: white; font-size:15px;"><input type="button" class="navbar-brand nosotros" style="font-size:15px; background-color:transparent; color: white; height:20px;" value="Nosotros"></li>
+                                        <li style="color: white; font-size:15px;"><input type="button" class="navbar-brand historia" style="font-size:15px; background-color:transparent; color: white; height:20px;" value="Historia"></li>
+                                        <li style="color: white; font-size:15px;"><input type="button" class="navbar-brand Contacto" style="font-size:15px; background-color:transparent; color: white; height:20px;" value="Contacto"></li>
+                                    </ul>
+                                </div>
+                                <div class="footerContacto" style="margin-left:15%;">
+                                    <h5 style="color: white; font-size:20px;">CONTACTO</h5><br />
+                                    <ul class="footer_ul_amrc">
+                                        <li style="color: white; font-size:15px;">Llamar a 8925 4402</li>
+                                        <li style="color: white; font-size:15px;">goramsea@gmail.com</li>
+                                    </ul>
+                                </div>
+
+                                <div class="footerRedes" style="margin-left:15%;">
+                                    <h5 style="color: white; font-size:20px;">REDES SOCIALES</h5><br />
+                                    <ul class="social-icons">
+                                        <li style="color: white">
+                                            <a href="https://www.facebook.com/PrometheusGym/" target="_blank">
+                                                <img src="../Imagenes/facebook.png" width="40" height="40">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="footerCopyright container">
+                                <div class="center text-center">
+                                    <hr>
+                                    <p style="color: white">PROMETHEUS MUSCLE FIT GYM | © 2019. Todos los derechos reservados.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="~/Scripts/SweerAlert/sweetalert2.min.js"></script>
+<script src="~/Scripts/esm/popper.js"></script>
+<script src="~/Scripts/misScripts.js"></script>
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/select2.min.js"></script>
+<script src="~/Scripts/tilt.jquery.min.js"></script>
+<script src="~/Scripts/main.js"></script>
+<script>
+    $('.inicio').bind('click', function () {
+
+        $('.form-inicio').removeClass('hidden');
+        $('.form-nosotros').removeClass('hidden');
+        $('.form-inicio').addClass('visible');
+        $('.form-nosotros').addClass('hidden');
+        $('.form-historia').removeClass('hidden');
+        $('.form-historia').addClass('hidden');
+        $('.form-Contacto').removeClass('hidden');
+        $('.form-Contacto').addClass('hidden');
+    });
+
+    $('.nosotros').bind('click', function () {
+
+        $('.form-nosotros').removeClass('hidden');
+        $('.form-inicio').removeClass('hidden');
+        $('.form-nosotros').addClass('visible');
+        $('.form-inicio').addClass('hidden');
+        $('.form-historia').removeClass('hidden');
+        $('.form-historia').addClass('hidden');
+        $('.form-Contacto').removeClass('hidden');
+        $('.form-Contacto').addClass('hidden');
+    });
+
+    $('.historia').bind('click', function () {
+
+        $('.form-historia').removeClass('hidden');
+        $('.form-historia').addClass('visible');
+        $('.form-inicio').removeClass('hidden');
+        $('.form-nosotros').removeClass('hidden');
+        $('.form-inicio').addClass('hidden');
+        $('.form-nosotros').addClass('hidden');
+        $('.form-Contacto').removeClass('hidden');
+        $('.form-Contacto').addClass('hidden');
+    });
+
+    $('.Contacto').bind('click', function () {
+
+        $('.form-Contacto').removeClass('hidden');
+        $('.form-Contacto').addClass('visible');
+        $('.form-historia').removeClass('hidden');
+        $('.form-historia').addClass('hidden');
+        $('.form-inicio').removeClass('hidden');
+        $('.form-nosotros').removeClass('hidden');
+        $('.form-inicio').addClass('hidden');
+        $('.form-nosotros').addClass('hidden');
+    });
+
+    @*$(function () {
+        $("#formLogin").submit(function () {
+            var email = $.trim($("#correo").val());
+            var password = $.trim($("#contraseña").val());
+            var url = "@Url.Action("Index","Home")";
+            var data = { email: email, password: password };
+
+            if (email.length == "" || password == "") {
+                Swal.fire({
+                    type: "error",
+                    title: "Debe llenar todos los espacios"
+                });
+                return false;
+            }
+            else {
+                $.post(url, data).done(function (data) {
+                    $.ajax({
+                        type: 'POST',
+                        datatype: 'json',
+                        data: { email: email, password: password },
+                        //$.post(url, data),
+                        success: function (data) {
+                            if (data == "null") {
+                                Swal.fire({
+                                    type: "error",
+                                    title: "Correo o contraseña incorrectos"
+                                });
+                            }
+                            else {
+                                Swal.fire({
+                                    type: "success",
+                                    title: "Datos correctos"
+                                }).then((result) => {
+                                    if (result.value) {
+                                        window.location.href = "@Url.Action("principalAdministrador","Home")";
+                                    }
+                                });
+                            }
+                        }
+                    });
+                });
+            }
+
+        });
+    });*@
+
+</script>

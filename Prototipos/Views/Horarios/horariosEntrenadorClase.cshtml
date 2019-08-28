@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Prototipos.Models.Usuarios_Clases> 
+<html>
+<head>
+    <title>PROMETHEUS GYM</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="PROMETHEUS MUSCLE FIT GYM">
+    <meta name="description" content="Descripción de la WEB">
+    <link href="~/Content/estilosBody.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <script src="~/Scripts/misScripts.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div style="margin-top: 50px;">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            <div class="container">
+                <h2>Entrenador por clase</h2><br /><br />
+                <table class="table table-striped custab">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Usuarios.cedula)</th>
+                            <th>@Html.DisplayNameFor(model => model.Usuarios.nombre)</th>
+                            <th>@Html.DisplayNameFor(model => model.Clases.nombre)</th>@* Nombre de la clase *@
+                            <th>@Html.DisplayNameFor(model => model.Clases.dia)</th>
+                            <th>@Html.DisplayNameFor(model => model.Clases.horaInicio)</th>
+                            <th>@Html.DisplayNameFor(model => model.Clases.horaFin)</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                        <td>@Html.DisplayFor(modeItem => item.Usuarios.cedula)</td>
+                        <td>@Html.DisplayFor(modeItem => item.Usuarios.nombre)</td>
+                        <td>@Html.DisplayFor(modeItem => item.Clases.nombre)</td>@* Nombre de la clase *@
+                        <td>@Html.DisplayFor(modeItem => item.Clases.dia)</td>
+                        <td>@Html.DisplayFor(modeItem => item.Clases.horaInicio)</td>
+                        <td>@Html.DisplayFor(modeItem => item.Clases.horaFin)</td>
+                    </tr>
+                    }
+                    
+
+                </table>
+                <div class="pagination">
+                    <li><a href="#">Prev</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">Next</a></li>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-1"></div>
+    </div>
+</body>
+</html>
