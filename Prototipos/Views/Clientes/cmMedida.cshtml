@@ -4,9 +4,10 @@
     ViewBag.Title = "cmMedida";
 }
 
-<h2>cmMedida</h2>
+
+<h2 style="color:#EA710B;">Medidas</h2>
 <a class="btn btn-info" href="@Url.Action("agregarMedidas", "Clientes")"> Agregar</a>
-<div style="width:100%;overflow:auto">
+<div style="width:100%; overflow:auto">
     <table class="table">
         <tr>
             <th>
@@ -145,7 +146,7 @@
                     @Html.DisplayFor(modelItem => item.circunferenciaPierna)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.fecha)
+                    @Html.FormatValue("dd-MM-yyyy", item.fecha.ToString("dd-MM-yyyy"))
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.IDUsuario)

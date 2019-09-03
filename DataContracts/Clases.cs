@@ -11,7 +11,8 @@ namespace DataContracts
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Clases
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,7 +24,9 @@ namespace DataContracts
         public int ID { get; set; }
         public string nombre { get; set; }
         public string dia { get; set; }
+        [DisplayName("hora inicio")]
         public System.DateTime horaInicio { get; set; }
+        [DisplayName("hora fin")]
         public System.DateTime horaFin { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

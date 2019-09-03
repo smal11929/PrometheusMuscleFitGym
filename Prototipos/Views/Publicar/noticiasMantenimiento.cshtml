@@ -29,7 +29,7 @@
                     {
                     <tr>
                         <td>@Html.DisplayFor(modelItem => item.titulo)</td>
-                        <td>@Html.DisplayFor(modelItem => item.fechaRealizacion)</td>
+                        <td>@Html.FormatValue("dd-MM-yyyy", item.fechaRealizacion.ToString("dd-MM-yyyy"))</td>
                         <td class="text-center"><a class='btn btn-info btn-xs' href="@Url.Action("modificarNoticia", "Publicar", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a><a href="@Url.Action("noticiasComentar", "Publicar", new { id = item.ID })" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-comment"></span> Comentar</a> <a href="@Url.Action("borrarNoticia", "Publicar", new { id = item.ID })" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
                     </tr>
                     }

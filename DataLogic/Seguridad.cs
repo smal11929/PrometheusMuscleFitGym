@@ -29,7 +29,7 @@ namespace DataLogic
                     elUsuario.telefono2,
                     elUsuario.ocupacion,
                     elUsuario.estadoCivil,
-                    elUsuario.habilitado,
+                    elUsuario.habilitado = true,
                     elUsuario.fechaIngreso,
                     elUsuario.fechaPago,
                     elUsuario.IDRutina);

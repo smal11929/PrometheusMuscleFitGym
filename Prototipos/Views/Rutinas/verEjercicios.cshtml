@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DataContracts.Ejercicios>
+
+
+
+<h2 style="color:#EA710B;">Mantenimiento de ejercicios</h2>
+<a class="btn btn-info" href="@Url.Action("agregarEjercicio", "Rutinas")"> Agregar</a>
+<div style="width:100%; overflow:auto">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.repeticiones)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.duracion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.series)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.repeticiones)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.duracion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.series)
+        </td>
+        <td>
+            <a class="btn btn-info" href="@Url.Action("modificarEjercicio", "Rutinas" ,new { id=item.ID})"> Modificar</a>
+            <a class="btn btn-info" href="@Url.Action("eliminarEjercicio", "Rutinas",new { id=item.ID})"> Eliminar</a>
+        </td>
+    </tr>
+        }
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Create New", "Agregar")
+</p>
+

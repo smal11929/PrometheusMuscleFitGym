@@ -107,7 +107,7 @@ namespace Prototipos.Controllers
             }
         }
 
-        public ActionResult cmRutina()
+        public ActionResult cmRutina(int id)
         {
             #region Viewbag
 
@@ -168,9 +168,11 @@ namespace Prototipos.Controllers
             ViewBag.OpcionesMinutos = lstMinutos;
 
             #endregion
+            Usuarios_Ejercicios model = new Usuarios_Ejercicios();
 
-
-            return View();
+            model.Usuarios = Cliente.obtieneusuarioEjercicio(id);
+            model.Ejercicios = Cliente.obtieneejercicioUsuario(id);
+            return View(model);
         }
 
         #endregion
@@ -181,6 +183,7 @@ namespace Prototipos.Controllers
         //GET://
         public ActionResult ModificarcmMedico(int? id)
         {
+
 
             #region ViewBag
 
@@ -252,10 +255,11 @@ namespace Prototipos.Controllers
             return RedirectToAction("cmMedida",new { id= (int)TempData["id2"] });
         }
 
+
         public ActionResult modificarMedidas(int id)
         {
             TempData["id2"] = TempData["id"];
-            return View();
+            return View(Cliente.obtenerMedidas(id));
         }
         [HttpPost]
         public ActionResult modificarMedidas(Medidas med)
@@ -267,5 +271,7 @@ namespace Prototipos.Controllers
             Cliente.UpadateMedidas(med);
             return RedirectToAction("cmMedida", new { id = (int)TempData["id2"] });
         }
+
+        
     }
 }

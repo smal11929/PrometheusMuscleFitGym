@@ -1,0 +1,50 @@
+﻿@model DataContracts.Ejercicios
+
+@{
+    ViewBag.Title = "detalleEjercicio";
+}
+
+<h2>detalleEjercicio</h2>
+
+<div>
+    <h4>Ejercicios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.repeticiones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.repeticiones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.duracion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.duracion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.series)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.series)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "modificarEjercicio", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "verEjercicios")
+</p>

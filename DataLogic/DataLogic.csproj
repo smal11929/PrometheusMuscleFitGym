@@ -81,6 +81,7 @@
     <Compile Include="Models\Usuarios_Clases.cs" />
     <Compile Include="Pagos.cs" />
     <Compile Include="Publicar.cs" />
+    <Compile Include="Rutinas.cs" />
     <Compile Include="Seguridad.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

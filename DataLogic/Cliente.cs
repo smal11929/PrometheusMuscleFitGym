@@ -337,6 +337,58 @@ namespace DataLogic
             }
         }
 
+        public static Medidas obtenerMedidas(int? id)
+        {
+            try
+            {
+                using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
+                {
+                    Medidas obtenerMedidas = db.Medidas.Find(id);
+                    return obtenerMedidas;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static Usuarios obtieneusuarioEjercicio(int id)
+        {
+            try
+            {
+                using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
+                {
+                    Usuarios obj = db.Usuarios.Find(id);
+                    return obj;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static Ejercicios obtieneejercicioUsuario(int id)
+        {
+            try
+            {
+                using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
+                {
+                    Ejercicios eje = (from ej in db.Ejercicios
+                                      join rut in db.referenciaRutinas_referenciaEjercicios on ej.ID equals rut.IDEjercicio
+                                      join usu in db.Usuarios on rut.IDRutina equals usu.IDRutina
+
+                                      where usu.ID == id
+                                      select ej).FirstOrDefault();
+                    return eje;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
     }
 }

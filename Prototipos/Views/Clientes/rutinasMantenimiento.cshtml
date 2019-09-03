@@ -29,13 +29,13 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                        <td>@Html.DisplayFor(modelItem => item.cedula)</td>
-                        <td>@Html.DisplayFor(modelItem => item.nombre)</td>
-                        <td>@Html.DisplayFor(modelItem => item.apellido1)</td>
-                        <td class="text-center"><a class='btn btn-info btn-xs' href="http://localhost:51865/Clientes/cmRutina" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
-                    </tr>
+                            <td>@Html.DisplayFor(modelItem => item.cedula)</td>
+                            <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+                            <td>@Html.DisplayFor(modelItem => item.apellido1)</td>
+                            <td class="text-center"><a class='btn btn-info btn-xs' href="@Url.Action("cmRutina", "Clientes", new { id=item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                        </tr>
                     }
-                    
+
 
                 </table>
                 <div class="pagination">

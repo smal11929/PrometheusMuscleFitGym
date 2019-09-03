@@ -105,5 +105,38 @@ namespace DataLogic
             return lista;
         }
 
+        public static void eliminarPago(int id)
+        {
+            try
+            {
+                using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
+                {
+                    db.eliminarPagoRealizado(id);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public static int getUsu(int? id)
+        {
+            try
+            {
+                using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
+                {
+                    Usuarios usu = db.Usuarios.Where(x => x.ID == id).FirstOrDefault();
+                    return usu.cedula;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

@@ -66,6 +66,17 @@ namespace Prototipos.Controllers
         //GET://
         public ActionResult modificarClase(int? id)
         {
+            List<SelectListItem> lst = new List<SelectListItem>();
+
+            lst.Add(new SelectListItem { Text = "Lunes", Value = "Lunes" });
+            lst.Add(new SelectListItem { Text = "Martes", Value = "Martes" });
+            lst.Add(new SelectListItem { Text = "Miercoles", Value = "Miercoles" });
+            lst.Add(new SelectListItem { Text = "Jueves", Value = "Jueves" });
+            lst.Add(new SelectListItem { Text = "Viernes", Value = "Viernes" });
+            lst.Add(new SelectListItem { Text = "Sabado", Value = "Sabado" });
+            lst.Add(new SelectListItem { Text = "Domingo", Value = "Domingo" });
+            ViewBag.Dias = lst;
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);

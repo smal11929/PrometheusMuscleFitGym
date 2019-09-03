@@ -11,13 +11,15 @@ namespace DataContracts
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class PagosRealizados
     {
         public int ID { get; set; }
         public int monto { get; set; }
         public System.DateTime fecha { get; set; }
         public bool descuento { get; set; }
+        [DisplayName("monto descuento")]
         public int montoDescuento { get; set; }
         public int IDUsuario { get; set; }
     

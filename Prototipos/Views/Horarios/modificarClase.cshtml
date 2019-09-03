@@ -41,8 +41,8 @@
                             <label class="col-md-4 control-label">Día de la clase</label>
                             <div class="col-md-4 inputGroupContainer">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                                    @Html.EditorFor(model => model.dia, new { htmlAttributes = new { @id="datepicker", @class = "form-control", @style = "", @required = "required;", @type = "date", @autocomplete = "off" } })
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                    @Html.DropDownListFor(model => model.dia, (IEnumerable<SelectListItem>)ViewBag.Dias, new { @class = "form-control" })
                                 </div>
                             </div>
                         </div>

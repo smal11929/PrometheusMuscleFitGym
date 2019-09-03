@@ -11,7 +11,8 @@ namespace DataContracts
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Noticias
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,6 +24,7 @@ namespace DataContracts
         public int ID { get; set; }
         public string titulo { get; set; }
         public string contenido { get; set; }
+        [DisplayName("fecha de realización")]
         public System.DateTime fechaRealizacion { get; set; }
         public byte[] imagen { get; set; }
     

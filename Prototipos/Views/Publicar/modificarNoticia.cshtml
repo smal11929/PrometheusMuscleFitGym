@@ -33,7 +33,7 @@
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                            @Html.EditorFor(model => model.fechaRealizacion, new { @id="datepicker",htmlAttributes = new { @class = "form-control", @style = "", @required = "required;", @type = "date" } })
+                            @Html.EditorFor(model => model.fechaRealizacion, new { htmlAttributes = new { @id = "datepicker2", @class = "form-control", @style = "", @required = "required;", @type = "date" } })
                         </div>
                     </div>
                 </div><br /><br /><br />
@@ -60,18 +60,21 @@
     </div>
 </body>
 <script>
-    window.onload = function(){
+     window.onload = function(){
   var fecha = new Date(); //Fecha actual
-  var mes = (fecha.getMonth()+1); //obteniendo mes
+  var mes = fecha.getMonth()+1; //obteniendo mes
   var dia = fecha.getDate(); //obteniendo dia
   var ano = fecha.getFullYear(); //obteniendo año
   if(dia<10)
     dia='0'+dia; //agrega cero si el menor de 10
   if(mes<10)
     mes='0'+mes //agrega cero si el menor de 10
-    document.getElementById("datepicker").value = ano + "-" + mes + "-" + dia;
+    document.getElementById('datepicker').value = ano + "-" + mes + "-" + dia;
+    document.getElementById('datepicker2').value=ano+"-"+mes+"-"+dia;
 }
+
     $('#summernote').summernote();
+   
 
 </script>
 </html>

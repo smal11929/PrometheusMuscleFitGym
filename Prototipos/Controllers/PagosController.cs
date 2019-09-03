@@ -33,29 +33,12 @@ namespace Prototipos.Controllers
 
         public ActionResult agregarPago()
         {
-            #region Viewbag
-            List<SelectListItem> lst = new List<SelectListItem>();
-
-            lst.Add(new SelectListItem { Text = "Si", Value = "true" });
-            lst.Add(new SelectListItem { Text = "No", Value = "false" });
-
-            ViewBag.OpcionDescuento = lst;
-            #endregion
-
             return View();
         }
 
         [HttpPost]
         public ActionResult agregarPago(PagosRealizados pago, FormCollection form)
         {
-            #region ViewBag
-            List<SelectListItem> lst = new List<SelectListItem>();
-
-            lst.Add(new SelectListItem { Text = "Si", Value = "true" });
-            lst.Add(new SelectListItem { Text = "No", Value = "false" });
-
-            ViewBag.OpcionDescuento = lst;
-            #endregion
             PagosRealizados pagosRealizados = new PagosRealizados();
 
             var cedula = form["cedula"];
@@ -69,25 +52,16 @@ namespace Prototipos.Controllers
             {
                 return RedirectToAction("pagosMantenimiento");
             }
-            
-            
+
+
         }
 
-        public ActionResult modificarPago(int? id)
+        public ActionResult modificarPago(int? idusuario, int idpago)
         {
-            List<SelectListItem> lst = new List<SelectListItem>();
+            int cedula = Pagos.getUsu(idusuario);
+            ViewBag.Usuario = cedula;
 
-            lst.Add(new SelectListItem { Text = "Si", Value = "true" });
-            lst.Add(new SelectListItem { Text = "No", Value = "false" });
-
-            ViewBag.OpcionDescuento = lst;
-
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
-            }
-
-            PagosRealizados pago = Pagos.visualizarModificarPago(id);
+            PagosRealizados pago = Pagos.visualizarModificarPago(idpago);
 
             return View(pago);
         }
@@ -95,15 +69,9 @@ namespace Prototipos.Controllers
         [HttpPost]
         public ActionResult modificarPago(PagosRealizados pago)
         {
-            List<SelectListItem> lst = new List<SelectListItem>();
-
-            lst.Add(new SelectListItem { Text = "Si", Value = "true" });
-            lst.Add(new SelectListItem { Text = "No", Value = "false" });
-
-            ViewBag.OpcionDescuento = lst;
-
             PagosRealizados pagos = new PagosRealizados();
-
+            int usu = Pagos.getUsu(pago.IDUsuario);
+            ViewBag.Usuario = usu;
             if (ModelState.IsValid)
             {
                 pagos = Pagos.modificarPago(pago);
@@ -112,6 +80,12 @@ namespace Prototipos.Controllers
 
 
             return View(pagos);
+        }
+
+        public ActionResult eliminarPago(int id)
+        {
+            Pagos.eliminarPago(id);
+            return RedirectToAction("pagosMantenimiento");
         }
     }
 }

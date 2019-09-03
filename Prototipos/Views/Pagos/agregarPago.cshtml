@@ -26,8 +26,8 @@
                             <label class="col-md-4 control-label">Cédula</label>
                             <div class="col-md-4 inputGroupContainer">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input type="text" name="cedula" class="form-control" required autocomplete="off"/>
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>
+                                    <input type="number" name="cedula" class="form-control" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
@@ -51,8 +51,19 @@
                             <label class="col-md-4 control-label">Fecha</label>
                             <div class="col-md-4 inputGroupContainer">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                     @Html.EditorFor(model => model.fecha, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;", @type = "date", @autocomplete = "off" } })
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Descuento</label>
+                            <div class="col-md-4 selectContainer">
+                                <div class="input-group">
+                                    @Html.EditorFor(model => model.descuento, new { @class = "form-control" })
                                 </div>
                             </div>
                         </div>
@@ -63,21 +74,8 @@
                             <label class="col-md-4 control-label">Monto con descuento</label>
                             <div class="col-md-4 inputGroupContainer">
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
                                     @Html.EditorFor(model => model.montoDescuento, new { htmlAttributes = new { @class = "form-control", @style = "", @required = "required;", @type = "number", @autocomplete = "off" } })
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!-- Text input-->
-
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Descuento</label>
-                            <div class="col-md-4 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    @Html.DropDownListFor(model => model.descuento, (IEnumerable<SelectListItem>)ViewBag.OpcionDescuento, new { @class = "form-control" })
                                 </div>
                             </div>
                         </div>
@@ -94,4 +92,15 @@
         </form>
     </div>
 </body>
+</html>
+<script>
+    var descuento = document.getElementById('#descuento').val();
+    if (descuento == "false") {
+        document.getElementById("montodescuento").disabled = true;
+    } else {
+        document.getElementById("montodescuento").enabled = true;
+    }
+    
+
+</script>
 </html>

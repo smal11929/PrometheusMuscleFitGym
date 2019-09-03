@@ -158,6 +158,7 @@
     <Compile Include="Controllers\HorariosController.cs" />
     <Compile Include="Controllers\PagosController.cs" />
     <Compile Include="Controllers\PublicarController.cs" />
+    <Compile Include="Controllers\RutinasController.cs" />
     <Compile Include="Controllers\SeguridadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -165,6 +166,7 @@
     <Compile Include="Models\ClasesModel.cs" />
     <Compile Include="Models\DatosSession.cs" />
     <Compile Include="Models\HistorialMedico_Usuarios.cs" />
+    <Compile Include="Models\Usuarios_Ejercicios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -333,6 +335,15 @@
     <Content Include="Views\Clientes\cmMedida.cshtml" />
     <Content Include="Views\Clientes\agregarMedidas.cshtml" />
     <Content Include="Views\Clientes\modificarMedidas.cshtml" />
+    <Content Include="Views\Rutinas\Index.cshtml" />
+    <Content Include="Views\Rutinas\detallesRutina.cshtml" />
+    <Content Include="Views\Rutinas\agregarRefereciaClase.cshtml" />
+    <Content Include="Views\Rutinas\agregraRutina.cshtml" />
+    <Content Include="Views\Rutinas\modificarRutina.cshtml" />
+    <Content Include="Views\Rutinas\verEjercicios.cshtml" />
+    <Content Include="Views\Rutinas\detalleEjercicio.cshtml" />
+    <Content Include="Views\Rutinas\agregarEjercicio.cshtml" />
+    <Content Include="Views\Rutinas\modificarEjercicio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

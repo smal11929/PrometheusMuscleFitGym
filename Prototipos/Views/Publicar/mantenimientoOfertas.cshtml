@@ -33,8 +33,8 @@
                         <td>@Html.DisplayFor(modelItem => item.titulo)</td>
                         <td>@Html.DisplayFor(modelItem => item.monto)</td>
                         <td>@Html.DisplayFor(modelItem => item.porcentaje)</td>
-                        <td>@Html.DisplayFor(modelItem => item.fechaInicio)</td>
-                        <td>@Html.DisplayFor(modelItem => item.fechaFin)</td>
+                        <td>@Html.FormatValue("dd-MM-yyyy", item.fechaInicio.ToString("dd-MM-yyyy"))</td>
+                        <td>@Html.FormatValue("dd-MM-yyyy", item.fechaFin.ToString("dd-MM-yyyy"))</td>
                         <td class="text-center col-lg-12"><a class='btn btn-info btn-xs' href="@Url.Action("modificarOferta", "Publicar", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a><a href="@Url.Action("ofertasDetalles", "Publicar", new { id = item.ID })" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-list"></span> Detalles</a>  <a href="@Url.Action("borrarOferta", "Publicar", new { id = item.ID })" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
                     </tr>
                     }

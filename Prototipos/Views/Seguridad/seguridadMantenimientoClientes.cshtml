@@ -33,9 +33,6 @@
                                 @Html.DisplayNameFor(model => model.correo)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.contrasena)
-                            </th>
-                            <th>
                                 @Html.DisplayNameFor(model => model.tipo)
                             </th>
                             <th>
@@ -63,9 +60,6 @@
                         @Html.DisplayFor(modelItem => item.correo)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.contrasena)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.tipo)
                     </td>
                     <td>
@@ -74,7 +68,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.habilitado)
                     </td>
-                    <td class="text-center col-lg-12"><a class='btn btn-info btn-xs' href="@Url.Action("modificarCliente", "Seguridad", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a></td>
+                    <td class="text-center col-lg-12"><a class='btn btn-info col-lg-6' href="@Url.Action("modificarCliente", "Seguridad", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a></td>
                 </tr>
                 }
 

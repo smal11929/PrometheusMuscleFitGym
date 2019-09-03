@@ -11,7 +11,8 @@ namespace DataContracts
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Usuarios
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -34,18 +35,26 @@ namespace DataContracts
         public int ID { get; set; }
         public int cedula { get; set; }
         public string nombre { get; set; }
+        [DisplayName("Primer apellido")]
         public string apellido1 { get; set; }
+        [DisplayName("segundo apellido")]
         public string apellido2 { get; set; }
         public string correo { get; set; }
         public string contrasena { get; set; }
         public string tipo { get; set; }
         public string sexo { get; set; }
+        [DisplayName("telefono")]
         public int telefono1 { get; set; }
+        [DisplayName("otro telefono")]
         public int telefono2 { get; set; }
         public string ocupacion { get; set; }
+        [DisplayName("Estado civil")]
         public string estadoCivil { get; set; }
+        [DisplayName("Habilitado")]
         public bool habilitado { get; set; }
+        [DisplayName("fecha de ingreso")]
         public System.DateTime fechaIngreso { get; set; }
+        [DisplayName("fecha de pago")]
         public System.DateTime fechaPago { get; set; }
         public int IDRutina { get; set; }
     

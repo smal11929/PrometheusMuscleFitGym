@@ -11,7 +11,8 @@ namespace DataContracts
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Ofertas
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,7 +26,9 @@ namespace DataContracts
         public string descripcion { get; set; }
         public int porcentaje { get; set; }
         public int monto { get; set; }
+        [DisplayName ("fecha inicio")]
         public System.DateTime fechaInicio { get; set; }
+        [DisplayName("fecha fin")]
         public System.DateTime fechaFin { get; set; }
         public byte[] imagen { get; set; }
     

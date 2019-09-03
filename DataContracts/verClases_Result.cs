@@ -10,13 +10,17 @@
 namespace DataContracts
 {
     using System;
-    
+    using System.ComponentModel;
+
     public partial class verClases_Result
     {
         public int ID { get; set; }
+        [DisplayName("Nombre")]
         public string nombre { get; set; }
         public string dia { get; set; }
+        [DisplayName("Hora inicio")]
         public System.DateTime horaInicio { get; set; }
+        [DisplayName("hora fin")]
         public System.DateTime horaFin { get; set; }
     }
 }

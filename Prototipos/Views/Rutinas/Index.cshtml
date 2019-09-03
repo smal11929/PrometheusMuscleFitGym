@@ -1,0 +1,32 @@
+﻿@model IEnumerable<DataContracts.Rutinas>
+
+
+<h2 style="color:#EA710B;">Mantenimiento de rutinas</h2>
+<a class="btn btn-info" href="@Url.Action("agregraRutina", "Rutinas")"> Agregar</a>
+<div style="width:100%; overflow:auto">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    <a class="btn btn-info" href="@Url.Action("modificarRutina", "Rutinas" ,new { id=item.ID})"> Modificar</a>
+                    <a class="btn btn-info" href="@Url.Action("eliminarRutina", "Rutinas",new { id=item.ID})"> Eliminar</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Create New", "Agregar")
+</p>
+
