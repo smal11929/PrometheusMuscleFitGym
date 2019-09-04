@@ -21,9 +21,22 @@ namespace Prototipos.Controllers
             return View(Envios.listarMensajes());
         }
 
-        public ActionResult notificacionesEnviar()
+        public ActionResult notificacionesEnviar(int id)
         {
-            return View(Publicar.listarNotificaciones());
+            return View(Publicar.listarNotificaciones(id));
+        }
+
+        public ActionResult AgregarNotificaciones(FormCollection form)
+        {
+            string titulo = form["titulo"];
+            string msj = form["summernote"];
+            Envios.AgregarNotificaciones(titulo,msj);
+            return RedirectToAction("UsuariosAnotificar");
+        }
+
+        public ActionResult UsuariosAnotificar()
+        {
+            return View(Publicar.listarUsuarios());
         }
     }
 }

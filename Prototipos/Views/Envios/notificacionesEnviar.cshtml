@@ -35,15 +35,15 @@
                     </thead>
                     @foreach (var item in Model)
                     {
-                     <tr>
-                        <td>
-                            <input type="checkbox" name="seleccionar">
-                        </td>
-                        <td>@Html.DisplayFor(modelItem => item.titulo)</td>
-                        <td>@Html.DisplayFor(modelItem => item.mensaje)</td>
-                     </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="seleccionar">
+                            </td>
+                            <td>@Html.DisplayFor(modelItem => item.titulo)</td>
+                            <td>@Html.DisplayFor(modelItem => item.mensaje)</td>
+                        </tr>
                     }
-                    
+
 
                 </table>
                 <div class="pagination">
@@ -55,10 +55,17 @@
                     <li><a href="#">Next</a></li>
                 </div><br /><br />
 
-                <form method="post" class="summer" style="height:300px;">
-                    <textarea id="summernote" name="editordata" style="resize:none;"></textarea><br /><br />
+                @using (Html.BeginForm())
+                {
+                    <label class="col-md-4 control-label" for="psw">Título</label>
+                    <input class="form-control" required autocomplete="off" id="titulo"/><br /><br />
+
+                    <textarea id="summernote" name="editordata" class="summer" style="resize:none;"></textarea><br /><br />
                     <a class="btn btn-info" href="#"> Notificar</a>
-                </form><br /><br /><br />
+                }
+
+                @*<form method="post" class="summer" style="height:300px;">
+        </form><br /><br /><br />*@
             </div>
         </div>
         <div class="col-lg-1"></div>

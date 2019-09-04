@@ -344,6 +344,7 @@
     <Content Include="Views\Rutinas\detalleEjercicio.cshtml" />
     <Content Include="Views\Rutinas\agregarEjercicio.cshtml" />
     <Content Include="Views\Rutinas\modificarEjercicio.cshtml" />
+    <Content Include="Views\Envios\UsuariosAnotificar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -27,6 +27,40 @@ namespace DataLogic
             return lista;
         }
 
+        public static void AgregarNotificaciones(string titulo, string msj)
+        {
+            try
+            {
+                using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
+                {
+                    db.insertNotificaciones(titulo,msj);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void AgregarRefe(referenciaUsuarios_referenciaNotificaciones refe)
+        {
+            try
+            {
+                using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
+                {
+                    db.referenciaUsuarios_referenciaNotificaciones.Add(refe);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
 
 
     }

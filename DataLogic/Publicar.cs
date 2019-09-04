@@ -185,23 +185,30 @@ namespace DataLogic
             return lista;
         }
 
-        public static List<Notificaciones> listarNotificaciones()
+        public static List<Notificaciones> listarNotificaciones(int id)
         {
             List<Notificaciones> lista = new List<Notificaciones>();
             try
             {
                 using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
                 {
-                    lista = db.Notificaciones.ToList();
+                    foreach(referenciaUsuarios_referenciaNotificaciones refe in db.referenciaUsuarios_referenciaNotificaciones.ToList())
+                    {
+                        if (refe.IDUsuario == id)
+                        {
+                            lista.Add(db.Notificaciones.Find(refe.IDNotificacion));
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                 throw ex;
             }
             return lista;
         }
+
+
         #endregion
 
         #region Agregar a Base de datos
@@ -435,10 +442,23 @@ namespace DataLogic
             }
         }
 
+        public static List<Usuarios> listarUsuarios()
+        {
+            try
+            {
+                using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
+                {
+                    List<Usuarios> lista = db.Usuarios.Where(x => x.tipo == "Cliente").ToList();
+                    return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
-
-
-
+        //public static 
 
 
 
