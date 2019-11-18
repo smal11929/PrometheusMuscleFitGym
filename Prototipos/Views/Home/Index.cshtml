@@ -41,7 +41,7 @@
                 <div class="login100-pic js-tilt" data-tilt>
                     <img src="~/Imagenes/PrometheusGym.png" alt="IMG">
                 </div>
-                
+
                 @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @name = "login", @class = "form", @id = "formLogin" }))
                 {
                     @Html.AntiForgeryToken()
@@ -56,7 +56,7 @@
                         <span class="symbol-input100">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
                         </span>
-                        @Html.EditorFor(model => model.correo, new { htmlAttributes = new {@id="correo", @name = "usuario", @class = "input100", @style = "", @placeholder = "Correo Electrónico", @type = "text", @autocomplete = "off" } })
+                        @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @id = "correo", @name = "usuario", @class = "input100", @style = "", @placeholder = "Correo Electrónico", @type = "text", @autocomplete = "off" } })
                     </div>
 
                     <!--Text Input-->
@@ -66,7 +66,7 @@
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true" onClick="mostrarContrasena()"></i>
                         </span>
-                        @Html.EditorFor(model => model.contrasena, new { htmlAttributes = new {@id="contraseña", @name = "pass", @class = "input100", @style = "", @placeholder = "Contraseña", @type = "password", @autocomplete = "off" } })
+                        @Html.EditorFor(model => model.contrasena, new { htmlAttributes = new { @id = "contraseña", @name = "pass", @class = "input100", @style = "", @placeholder = "Contraseña", @type = "password", @autocomplete = "off" } })
                     </div>
 
                     <div class="container-login100-form-btn">
@@ -75,12 +75,40 @@
                         </button>
                     </div>
 
-                    <div class="text-center p-t-12">
-                        <span class="txt1">
-                            Olvido la contraseña?
-                        </span>
+                    <div style="margin-top: 10px;">
+                        <input type="button" class="navbar-brand cambiarContraseña" style="font-size:20px; background-color:transparent;" value="Olvido la contraseña?">
                     </div>
+                    
                 }
+
+                @using (Html.BeginForm("", "Home", FormMethod.Post, new { @name = "login", @class = "form", @id = "formLogin" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-cambioContraseña hidden">
+                        <span class="login100-form-title">
+                        Enviar una contraseña temporal
+                    </span>
+
+                    <!--Text Input-->
+
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                        @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @id = "correo", @name = "usuario", @class = "input100", @style = "", @placeholder = "Correo Electrónico", @type = "text", @autocomplete = "off" } })
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Enviar
+                        </button>
+                    </div>
+                    </div>
+                    
+                }
+
             </div>
             <div class="wrap-login100 form-nosotros hidden col-lg-9 col-md-9 col-sm-9 col-xs-9" style="padding-top:30px;">
 
@@ -225,6 +253,14 @@
 <script src="~/Scripts/tilt.jquery.min.js"></script>
 <script src="~/Scripts/main.js"></script>
 <script>
+
+    $('.cambiarContraseña').bind('click', function () {
+        $('.form-cambioContraseña').removeClass('hidden');
+        $('.form-inicio').removeClass('hidden');
+        $('.form-cambioContraseña').addClass('visible');
+        $('.form-nosotros').addClass('hidden');
+    });
+
     $('.inicio').bind('click', function () {
 
         $('.form-inicio').removeClass('hidden');
