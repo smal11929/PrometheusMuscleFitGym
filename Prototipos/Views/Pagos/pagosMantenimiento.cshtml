@@ -20,6 +20,8 @@
                 <table class="table table-striped custab">
                     <thead>
                         <tr>
+                            <th>@Html.DisplayNameFor(model => model.Usuarios.nombre)</th>
+                            <th>@Html.DisplayNameFor(model => model.Usuarios.cedula)</th>
                             <th>@Html.DisplayNameFor(model => model.monto)</th>
                             <th>@Html.DisplayNameFor(model => model.montoDescuento)</th>
                             <th>@Html.DisplayNameFor(model => model.fecha)</th>
@@ -30,6 +32,8 @@
                     @foreach (var item in Model)
                     { 
                 <tr>
+                    <td>@*@Html.DisplayFor(modelItem => item.Usuarios.nombre)*@</td>
+                    <td>@*@Html.DisplayFor(modelItem => item.Usuarios.cedula)*@</td>
                     <td>@Html.DisplayFor(modelItem => item.monto)</td>
                     <td>@Html.DisplayFor(modelItem => item.montoDescuento)</td>
                     <td>@Html.FormatValue("dd-MM-yyyy", item.fecha.ToString("dd-MM-yyyy"))</td>

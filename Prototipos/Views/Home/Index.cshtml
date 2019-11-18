@@ -122,28 +122,30 @@
                     </span>
 
                     <div class="wrap-input100 validate-input">
+                        <input type="text" class="input100" name="nombre" placeholder="Nombre" autocomplete="off" required="required" />
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </span>
-                        @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "input100", @style = "", @required = "required;", @placeholder = "Nombre", @type = "text", @autocomplete = "off" } })
+                        @*@Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "input100", @style = "", @required = "required;", @placeholder = "Nombre", @type = "text", @autocomplete = "off" } })*@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <input type="text" class="input100" name="correo" placeholder="Correo" autocomplete="off" required="required" />
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
                         </span>
-                        @Html.EditorFor(model => model.correo, new { htmlAttributes = new { @class = "input100", @style = "", @required = "required;", @placeholder = "Correo Electrónico", @type = "text", @autocomplete = "off" } })
+                        @*@Html.EditorFor(model => model.correo, new { htmlAttributes = new { @class = "input100", @style = "", @required = "required;", @placeholder = "Correo Electrónico", @type = "text", @autocomplete = "off" } })*@
                     </div>
 
                     <div class="wrap-input100 validate-input">
-                        <textarea class="input100" type="text" name="mensaje" placeholder="Mensaje" autocomplete="off" style="resize:none;"></textarea>
+                        <textarea class="input100" type="text" name="mensaje" placeholder="Mensaje" autocomplete="off" required="required" style="resize:none;"></textarea>
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-file-text" aria-hidden="true"></i>
                         </span>
-                        @Html.EditorFor(model => model.Mensaje, new { htmlAttributes = new { @class = "input100", @style = "", @required = "required;", @placeholder = "Mensaje", @type = "text" } })
+                        @*@Html.EditorFor(model => model.Mensaje, new { htmlAttributes = new { @class = "input100", @style = "", @required = "required;", @placeholder = "Mensaje", @type = "text" } })*@
                     </div>
 
                     <div class="container-login100-form-btn">
