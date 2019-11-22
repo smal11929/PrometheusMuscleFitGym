@@ -21,7 +21,7 @@ namespace DataLogic
                     var paso = db.Usuarios.Where(x => x.correo == correo&&x.tipo!="Cliente"&&x.tipo!="Invitado"&&x.habilitado).FirstOrDefault();
                     string password = paso.contrasena;
                     pass = Encriptado.Encriptar(pass);
-                    var miUser = db.Usuarios.Where(x => x.correo ==  correo && password == pass && x.tipo != "Cliente" && x.tipo != "Invitado"&&x.habilitado).FirstOrDefault();
+                    var miUser = db.Usuarios.Where(x => x.correo ==  correo && x.contrasena == password && x.tipo != "Cliente" && x.tipo != "Invitado"&&x.habilitado).FirstOrDefault();
 
                     if (miUser == null)
                     {
