@@ -78,6 +78,7 @@
     <Compile Include="Models\MedidasHombre.cs" />
     <Compile Include="Models\MedidasMujer.cs" />
     <Compile Include="Models\Medidas_Usuarios.cs" />
+    <Compile Include="Models\PagosRealizados_Usuarios.cs" />
     <Compile Include="Models\Usuarios_Clases.cs" />
     <Compile Include="Pagos.cs" />
     <Compile Include="Publicar.cs" />

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Prototipos.Models;
 using System.Threading.Tasks;
 
 namespace DataLogic
@@ -86,20 +87,21 @@ namespace DataLogic
             return pago;
         }
 
-        public static List<PagosRealizados> listarPagos()
+        public static List<PagosRealizados_Usuarios> listarPagos()
         {
-            List<PagosRealizados> lista = new List<PagosRealizados>();
+            List<PagosRealizados_Usuarios> lista = new List<PagosRealizados_Usuarios>();
+            List<PagosRealizados> pagosRealizados = new List<PagosRealizados>();
+            List<Usuarios> usuarios = new List<Usuarios>();
             try
             {
                 using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
                 {
-                    lista = db.PagosRealizados.ToList();
-
+                   
+                    
                 }
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             return lista;

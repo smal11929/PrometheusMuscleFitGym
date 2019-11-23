@@ -54,14 +54,14 @@
                     <li><a href="#">4</a></li>
                     <li><a href="#">Next</a></li>
                 </div><br /><br />
-
-                @using (Html.BeginForm())
+                
+                @using (Html.BeginForm("AgregarNotificaciones", "Envios", FormMethod.Post, new { @class = "form"}))
                 {
                     <label class="col-md-4 control-label" for="psw">Título</label>
-                    <input class="form-control" required autocomplete="off" id="titulo"/><br /><br />
+                    <input class="form-control" required autocomplete="off" id="titulo" /><br /><br />
 
                     <textarea id="summernote" name="editordata" class="summer" style="resize:none;"></textarea><br /><br />
-                    <a class="btn btn-info" href="#"> Notificar</a>
+                    <button type="submit"><a class="btn btn-info">Notificar</a></button>
                 }
 
                 @*<form method="post" class="summer" style="height:300px;">

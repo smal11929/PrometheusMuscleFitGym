@@ -10,6 +10,7 @@ namespace DataLogic
 {
     public class Usuario
     {
+        public static int idusuario;
         
         public static Usuarios Login(string correo, string pass)
         {
@@ -22,6 +23,7 @@ namespace DataLogic
                     string password = paso.contrasena;
                     pass = Encriptado.Encriptar(pass);
                     var miUser = db.Usuarios.Where(x => x.correo ==  correo && x.contrasena == password && x.tipo != "Cliente" && x.tipo != "Invitado"&&x.habilitado).FirstOrDefault();
+                    idusuario = miUser.ID;
 
                     if (miUser == null)
                     {

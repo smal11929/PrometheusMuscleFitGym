@@ -60,6 +60,26 @@ namespace DataLogic
             }
         }
 
+        public static void AgregarMensaje(string msj, int idreceptor)
+        {
+            Mensaje mensaje = new Mensaje();//DataContract
+            try
+            {
+                using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
+                {
+                    mensaje.mensaje1 = msj;
+                    mensaje.IDEmisor = DataLogic.Usuario.idusuario;
+                    mensaje.IDReceptor = idreceptor;
+                    db.Entry(mensaje).State = System.Data.Entity.EntityState.Added;
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
 
 

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DataContracts.PagosRealizados>
+﻿@model IEnumerable<Prototipos.Models.PagosRealizados_Usuarios>
 
 <html>
 <head>
@@ -22,23 +22,23 @@
                         <tr>
                             <th>@Html.DisplayNameFor(model => model.Usuarios.nombre)</th>
                             <th>@Html.DisplayNameFor(model => model.Usuarios.cedula)</th>
-                            <th>@Html.DisplayNameFor(model => model.monto)</th>
-                            <th>@Html.DisplayNameFor(model => model.montoDescuento)</th>
-                            <th>@Html.DisplayNameFor(model => model.fecha)</th>
-                            <th>@Html.DisplayNameFor(model => model.descuento)</th>
+                            <th>@Html.DisplayNameFor(model => model.PagosRealizados.monto)</th>
+                            <th>@Html.DisplayNameFor(model => model.PagosRealizados.montoDescuento)</th>
+                            <th>@Html.DisplayNameFor(model => model.PagosRealizados.fecha)</th>
+                            <th>@Html.DisplayNameFor(model => model.PagosRealizados.descuento)</th>
                             <th class="text-center">Acción</th>
                         </tr>
                     </thead>
                     @foreach (var item in Model)
                     { 
                 <tr>
-                    <td>@*@Html.DisplayFor(modelItem => item.Usuarios.nombre)*@</td>
-                    <td>@*@Html.DisplayFor(modelItem => item.Usuarios.cedula)*@</td>
-                    <td>@Html.DisplayFor(modelItem => item.monto)</td>
-                    <td>@Html.DisplayFor(modelItem => item.montoDescuento)</td>
-                    <td>@Html.FormatValue("dd-MM-yyyy", item.fecha.ToString("dd-MM-yyyy"))</td>
-                    <td>@Html.DisplayFor(modelItem => item.descuento)</td>
-                    <td class="text-center col-lg-12"><a class='btn btn-info btn-xs' href="@Url.Action("modificarPago", "Pagos", new { IDUsuario = item.IDUsuario, idpago = item.ID})" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a> <a href="@Url.Action("eliminarPago", "Pagos", new { id = item.ID})" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                    <td>@Html.DisplayFor(modelItem => item.Usuarios.nombre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Usuarios.cedula)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PagosRealizados.monto)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PagosRealizados.montoDescuento)</td>
+                    <td>@Html.FormatValue("dd-MM-yyyy", item.PagosRealizados.fecha.ToString("dd-MM-yyyy"))</td>
+                    <td>@Html.DisplayFor(modelItem => item.PagosRealizados.descuento)</td>
+                    <td class="text-center col-lg-12"><a class='btn btn-info btn-xs' href="@Url.Action("modificarPago", "Pagos", new { IDUsuario = item.PagosRealizados.IDUsuario, idpago = item.PagosRealizados.ID})" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a> <a href="@Url.Action("eliminarPago", "Pagos", new { id = item.PagosRealizados.ID})" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
                 </tr>
                     }
 

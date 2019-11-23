@@ -16,8 +16,10 @@ namespace Prototipos.Controllers
             return View();
         }
 
-        public ActionResult mensajeTexto()
+        public ActionResult mensajeTexto(FormCollection form, int id)
         {
+            string msj = form["mensaje"];
+            Envios.AgregarMensaje(msj, id);
             return View(Envios.listarMensajes());
         }
 
@@ -26,6 +28,7 @@ namespace Prototipos.Controllers
             return View(Publicar.listarNotificaciones(id));
         }
 
+        
         public ActionResult AgregarNotificaciones(FormCollection form)
         {
             string titulo = form["titulo"];
@@ -35,6 +38,11 @@ namespace Prototipos.Controllers
         }
 
         public ActionResult UsuariosAnotificar()
+        {
+            return View(Publicar.listarUsuarios());
+        }
+
+        public ActionResult UsuariosAmensaje()
         {
             return View(Publicar.listarUsuarios());
         }
