@@ -52,8 +52,17 @@ namespace Prototipos.Controllers
                     {
                         session.DarSession("correo", user);
                         ViewBag.User = session.ObtenerSession("correo");
-                        miUsuario = new Usuarios();
-                        return RedirectToAction("principalAdministrador");
+                        if (miUsuario.tipo.Equals("Administrador"))
+                        {
+                            miUsuario = new Usuarios();
+                            return RedirectToAction("principalAdministrador");
+                        }
+                        else
+                        {
+                            miUsuario = new Usuarios();
+                            return RedirectToAction("principalCliente");
+                        }
+                        
                     }
                 }
             }
@@ -68,12 +77,57 @@ namespace Prototipos.Controllers
 
         public ActionResult principalAdministrador()
         {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+            if (Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                ViewBag.User = session.ObtenerSession("correo");
+                ViewBag.Tipo = TipoUser;
+
+                return View(); 
+            }
+            else
+            {
+                return RedirectToAction("getHome", "Home");
+            }
+            
+        }
+
+        public ActionResult principalCliente()
+        {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
             #region ViewBags
             ViewBag.User = session.ObtenerSession("correo");
             ViewBag.Tipo = TipoUser;
+            string correo = session.ObtenerSession("correo");
+            Usuarios usuario = Usuario.getID(correo);
+            ViewBag.IDRutina = usuario.IDRutina;
+            ViewBag.IDUser = usuario.ID;
             #endregion
 
             return View();
+        }
+
+        public ActionResult getHome() {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+            Usuarios miUsuario = new Usuarios();
+            miUsuario = Usuario.getID(session.ObtenerSession("correo"));
+            if (miUsuario.tipo.Equals("Administrador"))
+            {
+                return RedirectToAction("principalAdministrador");
+            }
+            else
+            {
+                return RedirectToAction("principalCliente");
+            }
         }
 
         public ActionResult Cerrar()
@@ -81,6 +135,11 @@ namespace Prototipos.Controllers
             session.DestruirSession();
             ViewBag.User = "";
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult error404()
+        {
+            return View();
         }
 
     }

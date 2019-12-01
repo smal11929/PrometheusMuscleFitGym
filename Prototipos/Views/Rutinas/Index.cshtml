@@ -20,6 +20,8 @@
                 <td>
                     <a class="btn btn-info" href="@Url.Action("modificarRutina", "Rutinas" ,new { id=item.ID})"> Modificar</a>
                     <a class="btn btn-info" href="@Url.Action("eliminarRutina", "Rutinas",new { id=item.ID})"> Eliminar</a>
+                    <a class="btn btn-info" href="@Url.Action("agregarEjerciciosRutina", "Rutinas",new { id=item.ID})"> Agregar Ejercicios</a>
+                    <a class="btn btn-info" href="@Url.Action("detalleRutina", "Rutinas",new { id=item.ID})"> Detalles</a>
                 </td>
             </tr>
         }

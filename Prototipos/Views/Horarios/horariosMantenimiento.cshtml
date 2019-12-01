@@ -17,14 +17,12 @@
         <div class="col-lg-10">
             <div class="container">
                 <h2>Mantenimiento de horarios</h2><br /><br />
+                <h3>Lunes</h3>
                 <table class="table table-striped custab">
                     <thead>
                         <tr>
                             <th>
                                 @Html.DisplayNameFor(model => model.nombre)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.dia)
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.horaInicio)
@@ -35,14 +33,11 @@
                             <th>Acción</th>
                         </tr>
                     </thead>
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.Where(x => x.dia == "Lunes"))
                     {
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.nombre)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.dia)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.horaInicio)
@@ -50,7 +45,309 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.horaFin)
                             </td>
-                            <td class="text-center col-lg-12"><a class='btn btn-info btn-xs' href="@Url.Action("modificarClase", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a> <a href="@Url.Action("borrarClase", "Horarios", new { id = item.ID })" id="eliminar" onclick="borrarHorario(@item.ID)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a> <a class='btn btn-info btn-xs' href="@Url.Action("horariosClienteClase", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Clientes</a></td>
+                            <td class="text-center col-lg-12">
+                                @{
+                                    if (ViewBag.Render)
+                                    {
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("modificarClase", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a>
+                                        <a href="@Url.Action("borrarClase", "Horarios", new { id = item.ID })" id="eliminar" onclick="borrarHorario(@item.ID)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("horariosClienteClase", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Clientes</a>
+                                    }
+                                    else
+                                    {
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("agregarClaseCliente", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Inscribirse</a>
+                                        
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+                <h3>Martes</h3>
+                <table class="table table-striped custab">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaInicio)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaFin)
+                            </th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.Where(x => x.dia == "Martes"))
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaInicio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaFin)
+                            </td>
+                            <td class="text-center col-lg-12">
+                                @{
+                                    if (ViewBag.Render)
+                                    {
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("modificarClase", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a>
+                                        <a href="@Url.Action("borrarClase", "Horarios", new { id = item.ID })" id="eliminar" onclick="borrarHorario(@item.ID)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("horariosClienteClase", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Clientes</a>
+                                    }
+                                    else
+                                    {
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("agregarClaseCliente", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Inscribirse</a>
+
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+                <h3>Miercoles</h3>
+                <table class="table table-striped custab">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.dia)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaFin)
+                            </th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.Where(x => x.dia == "Miercoles"))
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaInicio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaFin)
+                            </td>
+                            <td class="text-center col-lg-12">
+                                @{
+                                    if (ViewBag.Render)
+                                    {
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("modificarClase", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a>
+                                        <a href="@Url.Action("borrarClase", "Horarios", new { id = item.ID })" id="eliminar" onclick="borrarHorario(@item.ID)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("horariosClienteClase", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Clientes</a>
+                                    }
+                                    else
+                                    {
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("agregarClaseCliente", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Inscribirse</a>
+
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+                <h3>Jueves</h3>
+                <table class="table table-striped custab">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaInicio)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaFin)
+                            </th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.Where(x => x.dia == "Jueves"))
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaInicio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaFin)
+                            </td>
+                            <td class="text-center col-lg-12">
+                                @{
+                                    if (ViewBag.Render)
+                                    {
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("modificarClase", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a>
+                                        <a href="@Url.Action("borrarClase", "Horarios", new { id = item.ID })" id="eliminar" onclick="borrarHorario(@item.ID)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("horariosClienteClase", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Clientes</a>
+                                    }
+                                    else
+                                    {
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("agregarClaseCliente", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Inscribirse</a>
+
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+                <h3>Viernes</h3>
+                <table class="table table-striped custab">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaInicio)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaFin)
+                            </th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.Where(x => x.dia == "Viernes"))
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaInicio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaFin)
+                            </td>
+                            <td class="text-center col-lg-12">
+                                @{
+                                    if (ViewBag.Render)
+                                    {
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("modificarClase", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a>
+                                        <a href="@Url.Action("borrarClase", "Horarios", new { id = item.ID })" id="eliminar" onclick="borrarHorario(@item.ID)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("horariosClienteClase", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Clientes</a>
+                                    }
+                                    else
+                                    {
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("agregarClaseCliente", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Inscribirse</a>
+
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+                <h3>Sabado</h3>
+                <table class="table table-striped custab">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaInicio)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaFin)
+                            </th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.Where(x => x.dia == "Sabado"))
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaInicio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaFin)
+                            </td>
+                            <td class="text-center col-lg-12">
+                                @{
+                                    if (ViewBag.Render)
+                                    {
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("modificarClase", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a>
+                                        <a href="@Url.Action("borrarClase", "Horarios", new { id = item.ID })" id="eliminar" onclick="borrarHorario(@item.ID)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("horariosClienteClase", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Clientes</a>
+                                    }
+                                    else
+                                    {
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("agregarClaseCliente", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Inscribirse</a>
+
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+                <h3>Domingo</h3>
+                <table class="table table-striped custab">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaInicio)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaFin)
+                            </th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.Where(x => x.dia == "Domingo"))
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaInicio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaFin)
+                            </td>
+                            <td class="text-center col-lg-12">
+                                @{
+                                    if (ViewBag.Render)
+                                    {
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("modificarClase", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a>
+                                        <a href="@Url.Action("borrarClase", "Horarios", new { id = item.ID })" id="eliminar" onclick="borrarHorario(@item.ID)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("horariosClienteClase", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Clientes</a>
+                                    }
+                                    else
+                                    {
+                                        <a class='btn btn-info btn-xs' href="@Url.Action("agregarClaseCliente", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Inscribirse</a>
+
+                                    }
+                                }
+                            </td>
                         </tr>
                     }
 

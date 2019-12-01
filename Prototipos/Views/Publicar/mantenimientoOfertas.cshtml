@@ -35,7 +35,17 @@
                         <td>@Html.DisplayFor(modelItem => item.porcentaje)</td>
                         <td>@Html.FormatValue("dd-MM-yyyy", item.fechaInicio.ToString("dd-MM-yyyy"))</td>
                         <td>@Html.FormatValue("dd-MM-yyyy", item.fechaFin.ToString("dd-MM-yyyy"))</td>
-                        <td class="text-center col-lg-12"><a class='btn btn-info btn-xs' href="@Url.Action("modificarOferta", "Publicar", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a><a href="@Url.Action("ofertasDetalles", "Publicar", new { id = item.ID })" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-list"></span> Detalles</a>  <a href="@Url.Action("borrarOferta", "Publicar", new { id = item.ID })" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                        <td class="text-center col-lg-12">
+                            @{
+                                if (ViewBag.Render)
+                                {
+                                    <a class='btn btn-info btn-xs' href="@Url.Action("modificarOferta", "Publicar", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a>
+                                    <a href="@Url.Action("borrarOferta", "Publicar", new { id = item.ID })" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
+
+                                }
+                            }
+                            <a href="@Url.Action("ofertasDetalles", "Publicar", new { id = item.ID })" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-list"></span> Detalles</a>
+                        </td>
                     </tr>
                     }
 
@@ -51,7 +61,13 @@
             </div>
             <div class="col-lg-4"></div>
             <div class="col-lg-2">
-                <a class="btn btn-info" href="@Url.Action("agregarOferta", "Publicar")"> Agregar nueva oferta</a>
+                @{ 
+                    if (ViewBag.Render)
+                    {
+                       <a class="btn btn-info" href="@Url.Action("agregarOferta", "Publicar")"> Agregar nueva oferta</a>
+                    }
+                }
+                
             </div>
             <div class="col-lg-4"></div>
         </div>

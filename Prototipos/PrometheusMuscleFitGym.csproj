@@ -164,6 +164,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ClasesModel.cs" />
+    <Compile Include="Models\ComentarioEventoBean.cs" />
+    <Compile Include="Models\ComentarioNoticiaBean.cs" />
     <Compile Include="Models\DatosSession.cs" />
     <Compile Include="Models\HistorialMedico_Usuarios.cs" />
     <Compile Include="Models\Usuarios_Ejercicios.cs" />
@@ -345,6 +347,19 @@
     <Content Include="Views\Rutinas\agregarEjercicio.cshtml" />
     <Content Include="Views\Rutinas\modificarEjercicio.cshtml" />
     <Content Include="Views\Envios\UsuariosAnotificar.cshtml" />
+    <Content Include="Views\Home\principalCliente.cshtml" />
+    <Content Include="Views\Publicar\detalleEvento.cshtml" />
+    <Content Include="Views\Publicar\detalleNoticia.cshtml" />
+    <Content Include="Views\Envios\listaNotificaciones.cshtml" />
+    <Content Include="Views\Envios\AgregarNotificaciones.cshtml" />
+    <Content Include="Views\Envios\updateNotificacion.cshtml" />
+    <Content Include="Views\Envios\agrgarMensaje.cshtml" />
+    <Content Include="Views\Rutinas\agregarEjerciciosRutina.cshtml" />
+    <Content Include="Views\Rutinas\detalleRutina.cshtml" />
+    <Content Include="Views\Home\error404.cshtml" />
+    <Content Include="Views\Clientes\detalleHistorial.cshtml" />
+    <Content Include="Views\Clientes\listaMedidas.cshtml" />
+    <Content Include="Views\Horarios\miHorario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

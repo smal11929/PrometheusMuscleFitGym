@@ -5,20 +5,38 @@ using System.Web;
 using System.Web.Mvc;
 using DataContracts;
 using DataLogic;
+using Prototipos.Models;
 
 namespace Prototipos.Controllers
 {
     public class SeguridadController : Controller
     {
+        DatosSession session = new DatosSession();
+
         // GET: Seguridad
         public ActionResult Index()
         {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
+
             return View();
         }
 
         //GET://
         public ActionResult seguridadCambiarContraseña()
         {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
             return View(HomeController.Usercedula);
         }
 
@@ -27,6 +45,11 @@ namespace Prototipos.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult seguridadCambiarContraseña(Usuarios usuarios, FormCollection formCollection)
         {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
             var nuevaPass = formCollection["nuevacontraseña"];
             var confirmPass = formCollection["confirmarcontraseña"];
 
@@ -48,18 +71,46 @@ namespace Prototipos.Controllers
 
         public ActionResult seguridadMantenimientoUsuarios()
         {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
+
             return View();
         }
 
         
         public ActionResult seguridadMantenimientoClientes()
         {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
+
             return View(Seguridad.listarClientes());
         }
 
         public ActionResult agregarCliente()
         {
-            #region viewbag
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
 
             List<SelectListItem> lst = new List<SelectListItem>();
 
@@ -87,7 +138,6 @@ namespace Prototipos.Controllers
 
             ViewBag.OpcionesSexo = sexo;
 
-            #endregion
 
             return View();
         }
@@ -95,7 +145,15 @@ namespace Prototipos.Controllers
         [HttpPost]
         public ActionResult agregarCliente(Usuarios miUser)
         {
-            #region viewbag
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
 
             List<SelectListItem> lst = new List<SelectListItem>();
 
@@ -123,7 +181,6 @@ namespace Prototipos.Controllers
 
             ViewBag.OpcionesSexo = sexo;
 
-            #endregion
             try
             {
                 if (ModelState.IsValid)
@@ -143,7 +200,15 @@ namespace Prototipos.Controllers
         
         public ActionResult modificarCliente(int? id)
         {
-            #region viewbag
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
 
             List<SelectListItem> lst = new List<SelectListItem>();
 
@@ -171,12 +236,18 @@ namespace Prototipos.Controllers
 
             ViewBag.OpcionesSexo = sexo;
 
-            #endregion
-
             if (id == null)
             {
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
             }
+
+            List<SelectListItem> rutinas = new List<SelectListItem>();
+            foreach (DataContracts.Rutinas rut in DataLogic.Rutinas.getRutinas())
+            {
+                rutinas.Add(new SelectListItem { Text = rut.nombre, Value = rut.ID.ToString() });
+            }
+
+            ViewBag.Rutinas = rutinas;
 
             Usuarios usuario = Seguridad.visualizarModificarCliente(id);
 
@@ -187,7 +258,15 @@ namespace Prototipos.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult modificarCliente(Usuarios miUser)
         {
-            #region viewbag Tipo
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
 
             List<SelectListItem> lst = new List<SelectListItem>();
 
@@ -199,10 +278,6 @@ namespace Prototipos.Controllers
 
             ViewBag.OpcionesTipo = lst;
 
-            #endregion
-
-            #region Viewbag civil
-
             List<SelectListItem> civil = new List<SelectListItem>();
 
             civil.Add(new SelectListItem { Text = "Casado / a", Value = "Casado(a)" });
@@ -212,10 +287,6 @@ namespace Prototipos.Controllers
 
             ViewBag.OpcionesCivil = civil;
 
-            #endregion
-
-            #region Viewbag sexo
-
             List<SelectListItem> sexo = new List<SelectListItem>();
 
             sexo.Add(new SelectListItem { Text = "Masculino", Value = "m" });
@@ -223,7 +294,12 @@ namespace Prototipos.Controllers
 
             ViewBag.OpcionesSexo = sexo;
 
-            #endregion
+            List<SelectListItem> rutinas = new List<SelectListItem>();
+            foreach(DataContracts.Rutinas rut in DataLogic.Rutinas.getRutinas()){
+                rutinas.Add(new SelectListItem { Text = rut.nombre, Value = rut.ID.ToString() });
+            }
+
+            ViewBag.Rutinas = rutinas;
 
             Usuarios usuario = new Usuarios();
 
@@ -239,6 +315,16 @@ namespace Prototipos.Controllers
 
         public ActionResult solicitudCliente()
         {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
+
             return View(Seguridad.listarClientes());
         }
 

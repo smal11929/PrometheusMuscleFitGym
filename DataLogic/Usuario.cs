@@ -18,10 +18,10 @@ namespace DataLogic
                 using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
                 {
                     db.Configuration.ProxyCreationEnabled = false;
-                    var paso = db.Usuarios.Where(x => x.correo == correo&&x.tipo!="Cliente"&&x.tipo!="Invitado"&&x.habilitado).FirstOrDefault();
+                    var paso = db.Usuarios.Where(x => x.correo == correo&&x.tipo!="Invitado"&&x.habilitado).FirstOrDefault();
                     string password = paso.contrasena;
                     pass = Encriptado.Encriptar(pass);
-                    var miUser = db.Usuarios.Where(x => x.correo ==  correo && password == pass && x.tipo != "Cliente" && x.tipo != "Invitado"&&x.habilitado).FirstOrDefault();
+                    var miUser = db.Usuarios.Where(x => x.correo ==  correo && x.contrasena == password && x.tipo != "Invitado"&&x.habilitado).FirstOrDefault();
 
                     if (miUser == null)
                     {
@@ -72,7 +72,43 @@ namespace DataLogic
             }
         }
 
+        public static List<Usuarios> getUsers()
+        {
+            try
+            {
+                List<Usuarios> usuarios;
+                using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
+                {
+                    usuarios = db.Usuarios.Where(o => o.tipo == "Cliente").ToList();
+                    return usuarios;
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
 
+
+        }
+
+        public static List<Usuarios> getAllUsers()
+        {
+            try
+            {
+                List<Usuarios> usuarios;
+                using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
+                {
+                    usuarios = db.Usuarios.AsQueryable().ToList();
+                    return usuarios;
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+
+        }
 
     }
 }

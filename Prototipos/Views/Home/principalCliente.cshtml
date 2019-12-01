@@ -22,7 +22,7 @@
     <!-- Wrapper -->
     @if (!string.IsNullOrEmpty(ViewBag.User))
     {
-        
+
         <div id="wrapper" style="margin-top: 50px;">
 
             <!-- Main -->
@@ -40,7 +40,7 @@
                                         Bienvenido: @ViewBag.User
                                         <img src="~/Imagenes/PrometheusGym.png" class="userpicture defaultuserpic" width="35" height="35" role="presentation" aria-hidden="true">
                                     </h1>
-                                    </div>
+                                </div>
                             </div>
                         </div>
                     </nav>
@@ -48,25 +48,25 @@
 
                 <section class="thumbnails">
                     <div>
-                        
+
                         <div class="contenedor" id="publicar">
                             <img src="~/Imagenes/publicar.jpg" alt="" />
-                              <div class="centrado" style="margin-top: 50px;">
-                                 <ul style="margin-top:15px;">
-                                     <li class="menu-item sub-menu">
-                                          <h4>@Html.ActionLink("Eventos", "eventoMantenimiento", "Publicar")</h4>
-                                     </li>
-                                     <li class="menu-item sub-menu">
+                            <div class="centrado" style="margin-top: 50px;">
+                                <ul style="margin-top:15px;">
+                                    <li class="menu-item sub-menu">
+                                        <h4>@Html.ActionLink("Eventos", "eventoMantenimiento", "Publicar")</h4>
+                                    </li>
+                                    <li class="menu-item sub-menu">
                                         <h4>@Html.ActionLink("Noticias", "noticiasMantenimiento", "Publicar")</h4>
-                                     </li>
-                                     <li class="menu-item sub-menu">
-                                         <h4>@Html.ActionLink("Ofertas", "mantenimientoOfertas", "Publicar")</h4>
-                                     </li>
-                                 </ul>
-                              </div>
-                                <a href="#"><h3>Publicar</h3></a>
+                                    </li>
+                                    <li class="menu-item sub-menu">
+                                        <h4>@Html.ActionLink("Ofertas", "mantenimientoOfertas", "Publicar")</h4>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#"><h3>Publicar</h3></a>
                         </div>
-                       
+
 
 
                         <div class="contenedor">
@@ -75,9 +75,6 @@
                                 <ul style="margin-top:20px;">
                                     <li class="menu-item sub-menu">
                                         <h4>@Html.ActionLink("Cambiar contraseña", "seguridadCambiarContraseña", "Seguridad")</h4>
-                                    </li>
-                                    <li class="menu-item sub-menu">
-                                        <h4>@Html.ActionLink("Usuarios", "seguridadMantenimientoClientes", "Seguridad")</h4>
                                     </li>
                                 </ul>
                             </div>
@@ -94,6 +91,7 @@
                                 <ul style="margin-top:15px;">
                                     <li class="menu-item sub-menu">
                                         <h4>@Html.ActionLink("Clases", "horariosMantenimiento", "Horarios")</h4>
+                                        <h4>@Html.ActionLink("Mi Horario", "miHorario", "Horarios")</h4>
                                     </li>
                                 </ul>
                             </div>
@@ -117,10 +115,7 @@
                             <div class="centrado" style="margin-top: 30px;">
                                 <ul style="margin-top:15px;">
                                     <li class="menu-item sub-menu">
-                                        <h4>@Html.ActionLink("Notificaciones", "listaNotificaciones", "Envios")</h4>
-                                    </li>
-                                    <li class="menu-item sub-menu">
-                                        <h4>@Html.ActionLink("Enviar mensajes", "mensajeTexto", "Envios")</h4>
+                                        <h4>@Html.ActionLink("Mensajes", "mensajeTexto", "Envios")</h4>
                                     </li>
                                 </ul>
                             </div>
@@ -134,13 +129,13 @@
                             <div class="centrado" style="margin-top: 50px;">
                                 <ul style="margin-top:15px;">
                                     <li class="menu-item sub-menu">
-                                        <h4>@Html.ActionLink("Medidas / Historial médico", "medidasMantenimiento", "Clientes")</h4>
+                                        <h4>@Html.ActionLink("Medidas", "listaMedidas", "Clientes", new { id = ViewBag.IDUser }, null)</h4>
                                     </li>
                                     <li class="menu-item sub-menu">
-                                        <h4>@Html.ActionLink("Rutinas", "Index", "Rutinas")</h4>
+                                        <h4>@Html.ActionLink("Historial médico", "detalleHistorial", "Clientes", new { id = ViewBag.IDUser }, null)</h4>
                                     </li>
                                     <li class="menu-item sub-menu">
-                                        <h4>@Html.ActionLink("Ejercicios", "verEjercicios", "Rutinas")</h4>
+                                        <h4>@Html.ActionLink("Rutinas", "detalleRutina", "Rutinas", new { id = ViewBag.IDRutina }, null)</h4>
                                     </li>
                                 </ul>
                             </div>
@@ -165,10 +160,10 @@
 
 
         </div>
-     } 
+    }
 </body>
 </html>
 <script type="text/javascript">
-    
+
 </script>
 

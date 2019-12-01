@@ -1,0 +1,64 @@
+﻿@model DataContracts.Rutinas
+
+@{
+    ViewBag.Title = "detalleRutina";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>detalleRutina</h2>
+
+<div>
+    <h4>Rutinas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+    </dl>
+</div>
+
+<div>
+    <table class="table table-striped custab">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Repeticiones</th>
+                <th>Duracion</th>
+                <th>Series</th>
+                @{
+                    if (ViewBag.Render)
+                    {
+                                <th>Acciones</th>
+                    }
+                 }
+                
+            </tr>
+        </thead>
+        @foreach (var item in ViewBag.Ejercicios)
+        {
+    <tr>
+        <td>@item.descripcion</td>
+        <td>@item.repeticiones</td>
+        <td>@item.duracion</td>
+        <td>@item.series</td>
+        @{
+            if (ViewBag.Render)
+            {
+                <td>@Html.ActionLink("Eliminar", "deleteReferenciaEjercicio", new { id = item.ID })</td>
+            }
+        }
+        
+    </tr>
+        }
+
+
+    </table>
+</div>
+<p style="background-color:black">
+    @Html.ActionLink("Volver", "Index")
+</p>

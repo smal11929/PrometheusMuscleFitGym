@@ -59,7 +59,7 @@ namespace DataLogic
                     miUser.apellido1,
                     miUser.apellido2,
                     miUser.correo,
-                    Encriptado.Encriptar(miUser.contrasena),
+                    Usuario.getUser(miUser.ID).contrasena,
                     miUser.tipo,
                     miUser.sexo,
                     miUser.telefono1,
@@ -150,10 +150,28 @@ namespace DataLogic
             }
         }
 
-
-
-
-
-
+        public static Boolean isAdmin(string correo)
+        {
+            Usuarios user = new Usuarios();
+            try
+            {
+                using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
+                {
+                    user = db.Usuarios.Where(o => o.correo == correo).FirstOrDefault();
+                }
+                if (user.tipo.Equals("Administrador"))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -460,10 +460,36 @@ namespace DataLogic
 
         //public static 
 
+        public static List<ComentariosEventos> getComentariosEventos(int id){
+            try
+            {
+                using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
+                {
+                    List<ComentariosEventos> lista = db.ComentariosEventos.Where(x => x.IDEvento==id).ToList();
+                    return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
-
-
-
+        public static List<ComentariosNoticias> getComentariosNoticias(int id)
+        {
+            try
+            {
+                using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
+                {
+                    List<ComentariosNoticias> lista = db.ComentariosNoticias.Where(x => x.IDNoticia == id).ToList();
+                    return lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 }

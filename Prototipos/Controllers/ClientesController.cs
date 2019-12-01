@@ -14,7 +14,16 @@ namespace Prototipos.Controllers
         DatosSession session = new DatosSession();
         // GET: Clientes
         public ActionResult Index()
-        { 
+        {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
 
             return View();
         }
@@ -22,11 +31,31 @@ namespace Prototipos.Controllers
 
         public ActionResult medidasMantenimiento()
         {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
+
             return View(Cliente.listarUsuarios().Where(o=>o.tipo=="Cliente"&&o.habilitado));
         }
 
         public ActionResult rutinasMantenimiento()
         {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
+
             return View(Cliente.listarUsuarios().Where(o => o.tipo == "Cliente"&&o.habilitado));
         }
 
@@ -37,14 +66,23 @@ namespace Prototipos.Controllers
         //GET://
         public ActionResult AgregarcmMedico()
         {
-            #region ViewBag
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
+
             List<SelectListItem> lst = new List<SelectListItem>();
 
             lst.Add(new SelectListItem { Text = "Si", Value = "true" });
             lst.Add(new SelectListItem { Text = "No", Value = "false" });
 
             ViewBag.Opciones = lst;
-            #endregion
+            
 
 
             return View();
@@ -55,14 +93,23 @@ namespace Prototipos.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AgregarcmMedico(HistorialMedico hMedico)
         {
-            #region ViewBag
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
+
             List<SelectListItem> lst = new List<SelectListItem>();
 
             lst.Add(new SelectListItem { Text = "Si", Value = "1" });
             lst.Add(new SelectListItem { Text = "No", Value = "2" });
 
             ViewBag.Opciones = lst;
-            #endregion
+            
 
             if (ModelState.IsValid)
             {
@@ -75,12 +122,21 @@ namespace Prototipos.Controllers
 
         public ActionResult cmMedida(int? id)
         {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
             TempData["id"] = id;
             return View(Cliente.getMedidas((int)id));
         }
 
         public ActionResult MedidasHombres(List<Prototipos.Models.MedidasHombre> medidas)
         {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
             TempData["id2"] = TempData["id"];
             if (medidas == null)
             {
@@ -96,6 +152,11 @@ namespace Prototipos.Controllers
 
         public ActionResult MedidasMujer(MedidasMujer medidas)
         {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
             if (medidas == null)
             {
                 List<MedidasMujer> lista = new List<MedidasMujer>();
@@ -109,7 +170,10 @@ namespace Prototipos.Controllers
 
         public ActionResult cmRutina(int id)
         {
-            #region Viewbag
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
 
             List<SelectListItem> lstSeries = new List<SelectListItem>();
             List<SelectListItem> lstRepeticiones = new List<SelectListItem>();
@@ -167,7 +231,6 @@ namespace Prototipos.Controllers
             ViewBag.OpcionesRepeticiones = lstRepeticiones;
             ViewBag.OpcionesMinutos = lstMinutos;
 
-            #endregion
             Usuarios_Ejercicios model = new Usuarios_Ejercicios();
 
             model.Usuarios = Cliente.obtieneusuarioEjercicio(id);
@@ -183,9 +246,15 @@ namespace Prototipos.Controllers
         //GET://
         public ActionResult ModificarcmMedico(int? id)
         {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
 
-
-            #region ViewBag
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
 
             var viewalcochol = Cliente.retornaViewBags(id);
             var viewfumado = Cliente.retornaViewBags(id);
@@ -196,8 +265,6 @@ namespace Prototipos.Controllers
             ViewBag.Fumado = new SelectList(viewfumado,"fumado","fumado");
             ViewBag.Hipertension = new SelectList(viewhipertension, "hipertension", "hipertension");
             ViewBag.Diabetes = new SelectList(viewdiabetes, "diabetes", "diabetes");
-
-            #endregion
 
             HistorialMedico_Usuarios modelo = new HistorialMedico_Usuarios();
 
@@ -217,14 +284,22 @@ namespace Prototipos.Controllers
         //POST://
         public ActionResult ModificarcmMedico(HistorialMedico_Usuarios historialU)
         {
-            #region ViewBag
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
+
             List<SelectListItem> lst = new List<SelectListItem>();
 
             lst.Add(new SelectListItem { Text = "Si", Value = "1" });
             lst.Add(new SelectListItem { Text = "No", Value = "2" });
 
             ViewBag.Opciones = lst;
-            #endregion
 
             HistorialMedico historial = historialU.historialMedicO;
             historial.IDUsuario = (int)TempData["id"];
@@ -242,12 +317,33 @@ namespace Prototipos.Controllers
 
         public ActionResult agregarMedidas()
         {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
+
             TempData["id2"] = TempData["id"];
             return View();
         }
+
         [HttpPost]
         public ActionResult agregarMedidas(Medidas medid)
         {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
+
             medid.IDUsuario = (int)TempData["id2"];
             medid.IDEvaluador = Usuario.getID(session.ObtenerSession("correo")).ID;
             medid.fecha = DateTime.Now;
@@ -258,12 +354,32 @@ namespace Prototipos.Controllers
 
         public ActionResult modificarMedidas(int id)
         {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
+
             TempData["id2"] = TempData["id"];
             return View(Cliente.obtenerMedidas(id));
         }
         [HttpPost]
         public ActionResult modificarMedidas(Medidas med)
         {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            if (!Seguridad.isAdmin(session.ObtenerSession("correo")))
+            {
+                return RedirectToAction("getHome", "Home");
+            }
+
             med.IDUsuario = (int)TempData["id2"];
 
             med.IDEvaluador = Usuario.getID(session.ObtenerSession("correo")).ID;
@@ -272,6 +388,24 @@ namespace Prototipos.Controllers
             return RedirectToAction("cmMedida", new { id = (int)TempData["id2"] });
         }
 
-        
+        public ActionResult listaMedidas(int id)
+        {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            return View(Cliente.getMedidas(id));
+        }
+
+        public ActionResult detalleHistorial(int id)
+        {
+            if (session.ObtenerSession("correo").Equals(""))
+            {
+                return RedirectToAction("error404", "Home");
+            }
+
+            return View(Cliente.visualizarHM(id));
+        }
     }
 }

@@ -27,21 +27,15 @@
                 <table class="table table-striped custab">
                     <thead>
                         <tr>
-                            <th>Selccionar</th>
-                            <th>@Html.DisplayNameFor(model => model.mensaje1)</th>
-                            <th>@Html.DisplayNameFor(model => model.IDReceptor)</th>
                             <th>@Html.DisplayNameFor(model => model.IDEmisor)</th>
+                            <th>@Html.DisplayNameFor(model => model.mensaje1)</th>
                         </tr>
                     </thead>
                     @foreach (var item in Model)
                     {
                      <tr>
-                        <td>
-                            <input type="checkbox" name="seleccionar">
-                        </td>
+                         <td>@ViewBag.Clientes[item.IDEmisor]</td>
                         <td>@Html.DisplayFor(modelItem => item.mensaje1)</td>
-                        <td>@Html.DisplayFor(modelItem => item.IDReceptor)</td>
-                        <td>@Html.DisplayFor(modelItem => item.IDEmisor)</td>
                     </tr>
                     }
                     
@@ -55,10 +49,9 @@
                     <li><a href="#">4</a></li>
                     <li><a href="#">Next</a></li>
                 </div><br /><br />
-                <form method="post" class="summer" style="height:300px;">
-                    <textarea id="summernote" name="editordata" style="resize:none;"></textarea><br /><br />
-                    <a class="btn btn-info" href="sms:+50660163528"> Enviar mensaje de texto</a>
-                </form><br /><br /><br />
+                            <div style="background-color:black">
+                                @Html.ActionLink("Agregar", "agrgarMensaje")
+                            </div>
             </div>
         </div>
         <div class="col-lg-1"></div>

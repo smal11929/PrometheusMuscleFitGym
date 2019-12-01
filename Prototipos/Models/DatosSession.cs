@@ -7,12 +7,12 @@ namespace Prototipos.Models
 {
     public class DatosSession
     {
-        private String session;
+        private static String session;
         
 
         public String ObtenerSession(String correo)
         {
-            this.session = Convert.ToString(HttpContext.Current.Session[correo]);
+            session = Convert.ToString(HttpContext.Current.Session[correo]);
             return session;
         }
 
@@ -23,6 +23,8 @@ namespace Prototipos.Models
 
         public void DestruirSession()
         {
+            session = null;
+            HttpContext.Current.Session["correo"] = null;
             HttpContext.Current.Session.Clear();
             HttpContext.Current.Session.Abandon();
             HttpContext.Current.Session.RemoveAll();

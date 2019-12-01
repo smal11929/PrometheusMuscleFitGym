@@ -1,0 +1,152 @@
+﻿@model IEnumerable<DataContracts.Medidas>
+
+@{
+    ViewBag.Title = "listaMedidas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>listaMedidas</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pesoLB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pesoKg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estatura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diametroHumero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diametroFemur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pesoMuscular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pesoResidual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pesoGrasa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pesoOseo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.porcentajeGrasa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pesoLibreGrasa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.circunferenciaTorax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.circuferenciaBrazo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.circunferenciaAntebrazo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.circuferenciaCintura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.circunferenciaCadera)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.circunferenciaMuslo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.circunferenciaPierna)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.edad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pesoLB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pesoKg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estatura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diametroHumero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diametroFemur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pesoMuscular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pesoResidual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pesoGrasa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pesoOseo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.porcentajeGrasa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pesoLibreGrasa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.circunferenciaTorax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.circuferenciaBrazo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.circunferenciaAntebrazo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.circuferenciaCintura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.circunferenciaCadera)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.circunferenciaMuslo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.circunferenciaPierna)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+
+    </tr>
+}
+
+</table>
+<div style="background-color:black">
+    <p>
+        @Html.ActionLink("Volver", "principalCliente", "Home")
+    </p>
+</div>

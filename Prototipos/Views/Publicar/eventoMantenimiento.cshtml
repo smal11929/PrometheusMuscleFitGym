@@ -21,6 +21,7 @@
                         <thead>
                             <tr>
                                 <th>@Html.DisplayNameFor(model => model.nombre)</th>
+                                <th>@Html.DisplayNameFor(model => model.costo)</th>
                                 <th>@Html.DisplayNameFor(model => model.fechaRealizacion)</th>
                                 <th>@Html.DisplayNameFor(model => model.fechaPublicacion)</th>
                                 <th class="text-center">Acción</th>
@@ -30,9 +31,21 @@
                         {
                             <tr id="datosId">
                                 <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+                                <td>@Html.DisplayFor(modelItem => item.costo)</td>
                                 <td>@Html.FormatValue("dd-MM-yyyy", item.fechaRealizacion.ToString("dd-MM-yyyy"))</td>
                                 <td>@Html.FormatValue("dd-MM-yyyy", item.fechaPublicacion.ToString("dd-MM-yyyy"))</td>
-                                <td class="text-center"><a class='btn btn-info btn-xs' href="@Url.Action("modificarEvento", "Publicar", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a><a href="@Url.Action("eventosComentar", "Publicar", new { id = item.ID })" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-comment"></span> Comentar</a> <a href="@Url.Action("borrarEvento", "Publicar", new { id = item.ID })" id="eliminar" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                                <td class="text-center">
+                                    @{
+                                        if (ViewBag.Render)
+                                        {
+                                            <a class='btn btn-info btn-xs' href="@Url.Action("modificarEvento", "Publicar", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a>
+                                            <a href="@Url.Action("borrarEvento", "Publicar", new { id = item.ID })" id="eliminar" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
+                                        }
+                                    }
+
+                                    <a href="@Url.Action("detalleEvento", "Publicar", new { id = item.ID })" id="detalle" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Detalles</a>
+
+                                </td>
                             </tr>
                         }
 
@@ -48,7 +61,13 @@
                 </div>
                 <div class="col-lg-4"></div>
                 <div class="col-lg-2">
-                    <a class="btn btn-info" href="@Url.Action("agregarEvento", "Publicar")"> Agregar nuevo evento</a>
+                    @{ 
+                        if (ViewBag.Render)
+                        {
+                            <a class="btn btn-info" href="@Url.Action("agregarEvento", "Publicar")"> Agregar nuevo evento</a>
+                        }
+                    }
+                    
                 </div>
                 <div class="col-lg-4"></div>
             </div>

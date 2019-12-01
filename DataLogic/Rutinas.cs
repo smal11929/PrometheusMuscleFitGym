@@ -44,7 +44,7 @@ namespace DataLogic
                 db.Rutinas.Where(o => o.ID == rutina.ID).FirstOrDefault().nombre = rutina.nombre;
                 db.SaveChanges();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
 
             }
@@ -59,7 +59,7 @@ namespace DataLogic
                 db.Rutinas.Remove(rutina);
                 db.SaveChanges();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
 
             }
@@ -72,7 +72,7 @@ namespace DataLogic
                 PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities();
                 DataContracts.Rutinas rutina = db.Rutinas.Find(id);
                 return rutina;
-            }catch(Exception e)
+            } catch (Exception e)
             {
                 return null;
             }
@@ -87,7 +87,7 @@ namespace DataLogic
                 lista = db.Ejercicios.AsEnumerable().ToList();
                 return lista;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return null;
             }
@@ -99,7 +99,7 @@ namespace DataLogic
             {
                 PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities();
                 List<DataContracts.Ejercicios> lista = new List<DataContracts.Ejercicios>();
-                foreach(DataContracts.referenciaRutinas_referenciaEjercicios refe in db.referenciaRutinas_referenciaEjercicios.AsEnumerable().ToList())
+                foreach (DataContracts.referenciaRutinas_referenciaEjercicios refe in db.referenciaRutinas_referenciaEjercicios.AsEnumerable().ToList())
                 {
                     if (refe.IDRutina == id)
                     {
@@ -108,7 +108,7 @@ namespace DataLogic
                 }
                 return lista;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return null;
             }
@@ -121,7 +121,7 @@ namespace DataLogic
                 PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities();
                 return db.Ejercicios.Find(id);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return null;
             }
@@ -138,7 +138,7 @@ namespace DataLogic
                 db.Ejercicios.Find(ejercicio.ID).series = ejercicio.series;
                 db.SaveChanges();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
 
             }
@@ -154,7 +154,7 @@ namespace DataLogic
                 db.Ejercicios.Remove(ejercicio);
                 db.SaveChanges();
             }
-            catch(Exception e) {
+            catch (Exception e) {
             }
         }
 
@@ -166,7 +166,7 @@ namespace DataLogic
                 db.Ejercicios.Add(ejercicio);
                 db.SaveChanges();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
 
             }
@@ -177,6 +177,7 @@ namespace DataLogic
             try
             {
                 PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities();
+
                 db.referenciaRutinas_referenciaEjercicios.Add(refe);
                 db.SaveChanges();
             }
@@ -186,17 +187,62 @@ namespace DataLogic
             }
         }
 
+        public static DataContracts.referenciaRutinas_referenciaEjercicios getReferencia(int id)
+        {
+            try
+            {
+                PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities();
+                return db.referenciaRutinas_referenciaEjercicios.Find(id);
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public static DataContracts.referenciaRutinas_referenciaEjercicios getReferencia(int idEjer, int idRut){
+            try
+            {
+                PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities();
+                return db.referenciaRutinas_referenciaEjercicios.Where(x => x.IDRutina == idRut && x.IDEjercicio == idEjer).FirstOrDefault();
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
         public static void eliminarReferencia(DataContracts.referenciaRutinas_referenciaEjercicios refe)
         {
             try
             {
                 PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities();
-                db.referenciaRutinas_referenciaEjercicios.Remove(refe);
+                referenciaRutinas_referenciaEjercicios referencia = db.referenciaRutinas_referenciaEjercicios.Find(refe.ID);
+                db.referenciaRutinas_referenciaEjercicios.Remove(referencia);
                 db.SaveChanges();
             }
             catch (Exception e)
             {
+                string asss = "";
+            }
+        }
 
+        public static List<Ejercicios> getEjerciciosXRutina(int id)
+        {
+            try
+            {
+                PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities();
+                List<Ejercicios> ejercicios = new List<Ejercicios>();
+                List<referenciaRutinas_referenciaEjercicios> refe = db.referenciaRutinas_referenciaEjercicios.Where(x => x.IDRutina == id).ToList();
+                foreach(referenciaRutinas_referenciaEjercicios referencia in refe)
+                {
+                    ejercicios.Add(getEjercicio(referencia.IDEjercicio));
+                }
+                return ejercicios;
+            }
+            catch (Exception e)
+            {
+                return null;
             }
         }
 

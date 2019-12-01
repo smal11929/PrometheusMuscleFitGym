@@ -1,0 +1,44 @@
+﻿@model IEnumerable<DataContracts.Usuarios>
+
+@{
+    ViewBag.Title = "Enviar Mensaje a Usuario";
+}
+
+<h2>Enviar Mensaje a Usuario</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cedula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellido1)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellido1)
+            </td>
+            <td>
+                <a class="btn btn-info" href="@Url.Action("mensajeTexto", "Envios", new { id = item.ID })">Mensaje</a>
+            </td>
+        </tr>
+    }
+
+</table>

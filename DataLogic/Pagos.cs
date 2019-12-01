@@ -10,30 +10,17 @@ namespace DataLogic
     public class Pagos
     {
 
-        public static PagosRealizados AgregarPago(PagosRealizados pago, int cedula)
+        public static PagosRealizados AgregarPago(PagosRealizados pago)
         {
             try
             {
                 using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
                 {
-                    var id = db.BuscarIdPorCedula(cedula).FirstOrDefault();
 
-                    if (id == null)
-                    {
-                        pago = new PagosRealizados();
-                        return pago;
-                    }
-                    else
-                    {
-                        db.insertPagosRealizados(pago.monto,
-                        pago.fecha,
-                        pago.descuento,
-                        pago.montoDescuento,
-                        pago.IDUsuario = Convert.ToInt32(id));
-
+                    db.PagosRealizados.Add(pago);
                         db.SaveChanges();
                         return pago;
-                    }
+                    
                 }
             }
             catch (Exception ex)
@@ -49,13 +36,12 @@ namespace DataLogic
 
             try
             {
-                db.updatePagosRealizados(pago.ID,
-                pago.monto,
-                pago.fecha,
-                pago.descuento,
-                pago.montoDescuento,
-                pago.IDUsuario);
-
+                PagosRealizados p = db.PagosRealizados.Find(pago.ID);
+                p.monto = pago.monto;
+                p.fecha = pago.fecha;
+                p.descuento = pago.descuento;
+                p.montoDescuento = pago.montoDescuento;
+                p.IDUsuario = pago.IDUsuario;
                 db.SaveChanges();
             }
             catch (Exception ex)

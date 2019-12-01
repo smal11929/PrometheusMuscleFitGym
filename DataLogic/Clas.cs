@@ -127,6 +127,80 @@ namespace DataLogic
             return (listaClientes);
         }
 
+        public static Boolean agregarRefe(int idUser,int idClase)
+        {
+            try
+            {
+                using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
+                {
+                    Usuarios user = db.Usuarios.Find(idUser);
+                    Horarios horario = db.Horarios.Where(x => x.IDUsuario == idUser).FirstOrDefault();
+                    referenciaHorarios_referenciaClases refe = db.referenciaHorarios_referenciaClases.Where(x => x.IDHorario == horario.ID && x.IDClase == idClase).FirstOrDefault();
+                    if (refe == null)
+                    {
+                        referenciaHorarios_referenciaClases referencia = new referenciaHorarios_referenciaClases();
+                        referencia.IDClase = idClase;
+                        referencia.IDHorario = horario.ID;
+                        db.referenciaHorarios_referenciaClases.Add(referencia);
+                        db.SaveChanges();
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public static List<Clases> getClasesUsuario(int id)
+        {
+            try
+            {
+                using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
+                {
+                    Usuarios user = db.Usuarios.Find(id);
+                    Horarios horario = db.Horarios.Where(x => x.IDUsuario == id).FirstOrDefault();
+                    List<referenciaHorarios_referenciaClases> refes = db.referenciaHorarios_referenciaClases.Where(x => x.IDHorario == horario.ID).ToList();
+                    List<Clases> clases = new List<Clases>();
+                    foreach(referenciaHorarios_referenciaClases var in refes)
+                    {
+                        clases.Add(db.Clases.Find(var.IDClase));
+                    }
+                    return clases;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public static void borrarReferencia(int idUser,int idClass)
+        {
+            try
+            {
+                using (PROMETHEUS_DBEntities db = new PROMETHEUS_DBEntities())
+                {
+                    Usuarios user = db.Usuarios.Find(idUser);
+                    Horarios horario = db.Horarios.Where(x => x.IDUsuario == idUser).FirstOrDefault();
+                    referenciaHorarios_referenciaClases refes = db.referenciaHorarios_referenciaClases.Where(x => x.IDHorario == horario.ID&&x.IDClase==idClass).FirstOrDefault();
+                    db.referenciaHorarios_referenciaClases.Remove(refes);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
 
     }
 }

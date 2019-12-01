@@ -20,25 +20,40 @@
                 <table class="table table-striped custab">
                     <thead>
                         <tr>
-                            <th>@Html.DisplayNameFor(model => model.Usuarios.nombre)</th>
-                            <th>@Html.DisplayNameFor(model => model.Usuarios.cedula)</th>
+                            <th>Cliente</th>
                             <th>@Html.DisplayNameFor(model => model.monto)</th>
                             <th>@Html.DisplayNameFor(model => model.montoDescuento)</th>
                             <th>@Html.DisplayNameFor(model => model.fecha)</th>
                             <th>@Html.DisplayNameFor(model => model.descuento)</th>
-                            <th class="text-center">Acción</th>
+                            @{ 
+                                if (ViewBag.Render)
+                                {
+                                    <th class="text-center">Acción</th>
+                                }
+                            }
+                            
+
                         </tr>
                     </thead>
                     @foreach (var item in Model)
                     { 
                 <tr>
-                    <td>@*@Html.DisplayFor(modelItem => item.Usuarios.nombre)*@</td>
-                    <td>@*@Html.DisplayFor(modelItem => item.Usuarios.cedula)*@</td>
+                    <td>@ViewBag.Clientes[item.IDUsuario]</td>
                     <td>@Html.DisplayFor(modelItem => item.monto)</td>
                     <td>@Html.DisplayFor(modelItem => item.montoDescuento)</td>
                     <td>@Html.FormatValue("dd-MM-yyyy", item.fecha.ToString("dd-MM-yyyy"))</td>
                     <td>@Html.DisplayFor(modelItem => item.descuento)</td>
-                    <td class="text-center col-lg-12"><a class='btn btn-info btn-xs' href="@Url.Action("modificarPago", "Pagos", new { IDUsuario = item.IDUsuario, idpago = item.ID})" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a> <a href="@Url.Action("eliminarPago", "Pagos", new { id = item.ID})" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                    @{
+                        if (ViewBag.Render)
+                        {
+                            <td class="text-center col-lg-12">
+                                <a class='btn btn-info btn-xs' href="@Url.Action("modificarPago", "Pagos", new {idpago = item.ID})" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a>
+                                <a href="@Url.Action("eliminarPago", "Pagos", new { id = item.ID})" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
+                            </td>
+                        }
+                    }
+                    
+
                 </tr>
                     }
 
@@ -54,7 +69,13 @@
             </div>
             <div class="col-lg-4"></div>
             <div class="col-lg-2">
-                <a class="btn btn-info" href="@Url.Action("agregarPago", "Pagos")"> Agregar nuevo pago</a>
+                @{
+                    if (ViewBag.Render)
+                    {
+                        <a class="btn btn-info" href="@Url.Action("agregarPago", "Pagos")"> Agregar nuevo pago</a>
+                    }
+                }
+                
             </div>
             <div class="col-lg-4"></div>
         </div>

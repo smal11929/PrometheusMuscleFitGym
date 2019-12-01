@@ -1,0 +1,109 @@
+﻿@model DataContracts.HistorialMedico
+
+@{
+    ViewBag.Title = "detalleHistorial";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>detalleHistorial</h2>
+
+<div>
+    <h4>HistorialMedico</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.alcohol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.alcohol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fumado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fumado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hipertension)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hipertension)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diabetes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diabetes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.medicamentos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.medicamentos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fracturas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fracturas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cirugias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cirugias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.alergias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.alergias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.problemasArticulares)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.problemasArticulares)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.otras)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.otras)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDUsuario)
+        </dd>
+
+    </dl>
+</div>
+<div style="background-color:black">
+    <p>
+        @Html.ActionLink("Volver", "principalCliente","Home")
+    </p>
+</div>
+
