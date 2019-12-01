@@ -24,7 +24,10 @@
         {
             @Html.AntiForgeryToken()
             <h2>Actualizar evento</h2><br />
-            <div class="col-md-1"></div>
+            <div class="col-md-1">
+                
+            </div>
+            
             <div class="col-md-10">
 
                 <div class="form-group">
@@ -32,7 +35,7 @@
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                            @Html.EditorFor(model => model.fechaPublicacion, new { htmlAttributes = new { @id="datepicker",@class = "form-control", @style = "", @required = "required;", @type = "date" } })
+                            @Html.EditorFor(model => model.fechaPublicacion, new { htmlAttributes = new { @id = "datepicker", @class = "form-control", @style = "", @required = "required;", @type = "date" } })
                         </div>
                     </div>
                 </div><br /><br /><br />
@@ -42,7 +45,7 @@
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                            @Html.EditorFor(model => model.fechaRealizacion, new { htmlAttributes = new { @id="datepicker2",@class = "form-control", @style = "", @required = "required;", @type = "date" } })
+                            @Html.EditorFor(model => model.fechaRealizacion, new { htmlAttributes = new { @id = "datepicker2", @class = "form-control", @style = "", @required = "required;", @type = "date" } })
                         </div>
                     </div>
                 </div><br /><br /><br />
@@ -72,6 +75,9 @@
                     <div class="col-md-4">
                         <button name="adduser" type="submit" class="btn btn-warning btn-block" id="contact-submit">Actualizar evento</button>
                     </div>
+                    <div class="col-md-4">
+    <a class="btn btn-warning btn-block" href="javascript:history.back()"> Volver atras</a>
+</div>
                 </div>
             </div>
             <div class="col-md-1"></div>

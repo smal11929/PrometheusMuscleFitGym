@@ -48,12 +48,15 @@
                     </div>
                 </div><br /><br /><br />
 
-                <div class="form-group" style="height:250px;">
-                    @Html.TextAreaFor(model => model.contenido, new { @id = "summernote", @class = "form-control", @name = "editordata", @style = "resize:none;", @required = "required;", @type = "textarea" })
-                    <div class="col-md-4">
-                        <button name="adduser" type="submit" class="btn btn-warning btn-block" id="contact-submit">Públicar noticia</button>
-                    </div>
-                </div>
+                                  <div class="form-group" style="height:250px;">
+                                      @Html.TextAreaFor(model => model.contenido, new { @id = "summernote", @class = "form-control", @name = "editordata", @style = "resize:none;", @required = "required;", @type = "textarea" })
+                                      <div class="col-md-4">
+                                          <button name="adduser" type="submit" class="btn btn-warning btn-block" id="contact-submit">Públicar noticia</button>
+                                      </div>
+                                      <div class="col-md-4">
+                                          <a class="btn btn-warning btn-block" href="javascript:history.back()"> Volver atras</a>
+                                      </div>
+                                  </div>
             </div>
             <div class="col-md-1"></div>
         }

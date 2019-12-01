@@ -46,7 +46,15 @@
                     </h3>
                 </dl>
             </div>
+
             <hr />
+            <br /><br />
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-4">
+                    <a class="btn btn-warning btn-block" href="javascript:history.back()"> Volver atras</a>
+                </div>
+            </div>
 
             @using (Html.BeginForm("noticiasComentar", "Publicar", FormMethod.Post, new { @class = "form summer" }))
             {
@@ -64,35 +72,38 @@
                                                 <button name="adduser" type="submit" class="btn btn-warning btn-block" id="contact-submit">Comentar</button>
                                             </div>
                                         </div>
+
                                     </div>
+
                                 </fieldset>
                             </form>
                         </div>
                     </div>
                 </div>
             }
+        <div>
+
+            <table class="table table-striped custab" style="min-width: 100px !important;">
+                <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Mensaje</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                @foreach (var comentario in ViewBag.Comentarios)
+                {
+                    <tr>
+                        <td>@comentario.usuario</td>
+                        <td>@comentario.mensaje</td>
+                        <td>@comentario.fecha</td>
+                    </tr>
+                }
+
+            </table>
+        </div>
         </div>
         <div class="col-md-2"></div>
-    </div>
-    <div>
-        <table class="table table-striped custab">
-            <thead>
-                <tr>
-                    <th>Usuario</th>
-                    <th>Mensaje</th>
-                    <th>Fecha</th>
-                </tr>
-            </thead>
-            @foreach (var comentario in ViewBag.Comentarios)
-            {
-                <tr>
-                    <td>@comentario.usuario</td>
-                    <td>@comentario.mensaje</td>
-                    <td>@comentario.fecha</td>
-                </tr>
-            }
-
-        </table>
     </div>
 </body>
 </html>

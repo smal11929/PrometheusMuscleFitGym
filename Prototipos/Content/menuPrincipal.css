@@ -1418,6 +1418,7 @@ a {
     -webkit-transition: border-bottom-color 0.2s ease-in-out, color 0.2s ease-in-out;
     -ms-transition: border-bottom-color 0.2s ease-in-out, color 0.2s ease-in-out;
     transition: border-bottom-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    padding: 0.5em;
 }
 
     a:hover {

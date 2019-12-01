@@ -16,7 +16,7 @@
             <fieldset>
                 <!-- Form Name -->
                 <class style="text-align:center;">
-                    
+
 
                     @using (Html.BeginForm("modificarClase", "Horarios", FormMethod.Post, new { @class = "form-control" }))
                     {
@@ -55,7 +55,7 @@
                             <div class="col-md-4 inputGroupContainer">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    @Html.EditorFor(model => model.horaInicio, new { htmlAttributes = new {@id="datepicker2", @class = "form-control", @style = "", @required = "required;", @type = "time", @autocomplete = "off" } })
+                                    @Html.EditorFor(model => model.horaInicio, new { htmlAttributes = new { @id = "datepicker2", @class = "form-control", @style = "", @required = "required;", @type = "time", @autocomplete = "off" } })
                                 </div>
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                             <div class="col-md-4 inputGroupContainer">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    @Html.EditorFor(model => model.horaFin, new { htmlAttributes = new { @id="datepicker3",@class = "form-control", @style = "", @required = "required;", @type = "time", @autocomplete = "off" } })
+                                    @Html.EditorFor(model => model.horaFin, new { htmlAttributes = new { @id = "datepicker3", @class = "form-control", @style = "", @required = "required;", @type = "time", @autocomplete = "off" } })
                                 </div>
                             </div>
                         </div>
@@ -78,8 +78,14 @@
                                 <button name="adduser" type="submit" class="btn btn-warning btn-block" id="contact-submit">Guardar clase</button>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"></label>
+                            <div class="col-md-4">
+                                <a class="btn btn-warning btn-block" href="javascript:history.back()"> Volver atras</a>
+                            </div>
+                        </div>
                     }
-            
+
                 </class>        
             </fieldset>
         </form>

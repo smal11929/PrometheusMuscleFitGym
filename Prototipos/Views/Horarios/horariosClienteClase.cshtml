@@ -4,114 +4,150 @@
     ViewBag.Title = "horarios de Cliente por Cl";
 }
 
-<h2>horariosClienteClase</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.cedula)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.apellido1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.apellido2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.correo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.contrasena)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tipo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.sexo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.telefono1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.telefono2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ocupacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estadoCivil)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.habilitado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fechaIngreso)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fechaPago)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IDRutina)
-        </th>
-    </tr>
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <title>PROMETHEUS GYM</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="PROMETHEUS MUSCLE FIT GYM">
+    <meta name="description" content="Descripción de la WEB">
+    <link href="~/Content/estilosBody.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Scripts/SweerAlert/sweetalert2.min.css" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div style="margin-top: 50px;">
+        <div class="col-lg-1"></div>
+            <div class="col-lg-10">
+                <div class="container">
+                    <h2>Horarios de los clientes</h2>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.cedula)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.apellido1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.apellido2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.correo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.contrasena)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tipo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.sexo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.telefono1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.telefono2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ocupacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estadoCivil)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.habilitado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fechaIngreso)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fechaPago)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IDRutina)
-        </td>
-    </tr>
-}
+                    <p>
+                        @Html.ActionLink("Create New", "Create")
+                    </p>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.cedula)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.apellido1)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.apellido2)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.correo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.contrasena)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.tipo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.sexo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.telefono1)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.telefono2)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ocupacion)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.estadoCivil)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.habilitado)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.fechaIngreso)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.fechaPago)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IDRutina)
+                            </th>
+                        </tr>
 
-</table>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.cedula)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.apellido1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.apellido2)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.correo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.contrasena)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.tipo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.sexo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.telefono1)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.telefono2)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ocupacion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.estadoCivil)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.habilitado)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.fechaIngreso)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.fechaPago)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IDRutina)
+                                </td>
+                            </tr>
+
+                        }
+
+
+                    </table>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label"></label>
+                        <div class="col-md-4">
+                            <a class="btn btn-warning btn-block" href="javascript:history.back()"> Volver atras</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    
+</body>
+</html>
+
