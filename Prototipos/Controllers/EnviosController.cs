@@ -173,7 +173,8 @@ namespace Prototipos.Controllers
             return View(Envios.getNotificacion(id));
         }
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
+        [ValidateAntiForgeryToken]
         public ActionResult updateNotificacion(Notificaciones notificacion)
         {
             if (session.ObtenerSession("correo").Equals(""))

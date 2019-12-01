@@ -1,296 +1,302 @@
 ﻿@model IEnumerable<Prototipos.Models.ClasesModel>
 
-    <html>
-    <head>
-        <title>PROMETHEUS GYM</title>
-        <meta charset="UTF-8">
-        <meta name="title" content="PROMETHEUS MUSCLE FIT GYM">
-        <meta name="description" content="Descripción de la WEB">
-        <link href="~/Content/estilosBody.css" rel="stylesheet" />
-        <link href="~/Content/main.css" rel="stylesheet" />
-        <script src="~/Scripts/misScripts.js"></script>
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-        <div style="margin-top: 50px;">
-            <div class="col-lg-1"></div>
-            <div class="col-lg-10">
-                <div class="container">
-                    <h2>Mi horario</h2><br /><br />
-                    <h3>Lunes</h3>
-                    <table class="table table-striped custab">
-                        <thead>
-                            <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.nombre)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.horaInicio)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.horaFin)
-                                </th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        @foreach (var item in Model.Where(x => x.dia == "Lunes"))
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.nombre)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.horaInicio)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.horaFin)
-                                </td>
-                                <td class="text-center col-lg-12">
-                                    <a class='btn btn-info btn-xs' href="@Url.Action("borrarRefe", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Desinscribirse</a>
-                                </td>
-                            </tr>
-                        }
+<html>
+<head>
+    <title>PROMETHEUS GYM</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="PROMETHEUS MUSCLE FIT GYM">
+    <meta name="description" content="Descripción de la WEB">
+    <link href="~/Content/estilosBody.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <script src="~/Scripts/misScripts.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div style="margin-top: 50px;">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            <div class="container">
+                <h2>Mi horario</h2><br /><br />
+                <h2>Lunes</h2><br /><br />
+                <table class="table table-striped custab">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaInicio)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaFin)
+                            </th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.Where(x => x.dia == "Lunes"))
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaInicio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaFin)
+                            </td>
+                            <td class="text-center col-lg-12">
+                                <a class='btn btn-info btn-xs' href="@Url.Action("borrarRefe", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Desinscribirse</a>
+                            </td>
+                        </tr>
+                    }
 
-                    </table>
+                </table>
+                <br /><br />
+                <h2>Martes</h2>
+                <br /><br />
+                <table class="table table-striped custab">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaInicio)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaFin)
+                            </th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.Where(x => x.dia == "Martes"))
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaInicio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaFin)
+                            </td>
+                            <td class="text-center col-lg-12">
+                                <a class='btn btn-info btn-xs' href="@Url.Action("borrarRefe", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Desinscribirse</a>
+                            </td>
+                        </tr>
+                    }
 
-                    <h3>Martes</h3>
-                    <table class="table table-striped custab">
-                        <thead>
-                            <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.nombre)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.horaInicio)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.horaFin)
-                                </th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        @foreach (var item in Model.Where(x => x.dia == "Martes"))
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.nombre)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.horaInicio)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.horaFin)
-                                </td>
-                                <td class="text-center col-lg-12">
-                                    <a class='btn btn-info btn-xs' href="@Url.Action("borrarRefe", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Desinscribirse</a>
-                                </td>
-                            </tr>
-                        }
+                </table>
+                <br /><br />
+                <h2>Miercoles</h2>
+                <br /><br />
+                <table class="table table-striped custab">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.dia)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaFin)
+                            </th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.Where(x => x.dia == "Miercoles"))
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaInicio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaFin)
+                            </td>
+                            <td class="text-center col-lg-12">
+                                <a class='btn btn-info btn-xs' href="@Url.Action("borrarRefe", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Desinscribirse</a>
 
-                    </table>
+                            </td>
+                        </tr>
+                    }
 
-                    <h3>Miercoles</h3>
-                    <table class="table table-striped custab">
-                        <thead>
-                            <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.nombre)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.dia)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.horaFin)
-                                </th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        @foreach (var item in Model.Where(x => x.dia == "Miercoles"))
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.nombre)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.horaInicio)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.horaFin)
-                                </td>
-                                <td class="text-center col-lg-12">
-                                    <a class='btn btn-info btn-xs' href="@Url.Action("borrarRefe", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Desinscribirse</a>
+                </table>
+                <br /><br />
+                <h2>Jueves</h2>
+                <br /><br />
+                <table class="table table-striped custab">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaInicio)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaFin)
+                            </th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.Where(x => x.dia == "Jueves"))
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaInicio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaFin)
+                            </td>
+                            <td class="text-center col-lg-12">
+                                <a class='btn btn-info btn-xs' href="@Url.Action("borrarRefe", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Desinscribirse</a>
 
-                                </td>
-                            </tr>
-                        }
+                            </td>
+                        </tr>
+                    }
 
-                    </table>
+                </table>
+                <br /><br />
+                <h2>Viernes</h2>
+                <br /><br />
+                <table class="table table-striped custab">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaInicio)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaFin)
+                            </th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.Where(x => x.dia == "Viernes"))
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaInicio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaFin)
+                            </td>
+                            <td class="text-center col-lg-12">
+                                <a class='btn btn-info btn-xs' href="@Url.Action("borrarRefe", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Desinscribirse</a>
 
-                    <h3>Jueves</h3>
-                    <table class="table table-striped custab">
-                        <thead>
-                            <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.nombre)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.horaInicio)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.horaFin)
-                                </th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        @foreach (var item in Model.Where(x => x.dia == "Jueves"))
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.nombre)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.horaInicio)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.horaFin)
-                                </td>
-                                <td class="text-center col-lg-12">
-                                    <a class='btn btn-info btn-xs' href="@Url.Action("borrarRefe", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Desinscribirse</a>
+                            </td>
+                        </tr>
+                    }
 
-                                </td>
-                            </tr>
-                        }
+                </table>
+                <br /><br />
+                <h2>Sabado</h2>
+                <br /><br />
+                <table class="table table-striped custab">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaInicio)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaFin)
+                            </th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.Where(x => x.dia == "Sabado"))
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaInicio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaFin)
+                            </td>
+                            <td class="text-center col-lg-12">
+                                <a class='btn btn-info btn-xs' href="@Url.Action("borrarRefe", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Desinscribirse</a>
 
-                    </table>
+                            </td>
+                        </tr>
+                    }
 
-                    <h3>Viernes</h3>
-                    <table class="table table-striped custab">
-                        <thead>
-                            <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.nombre)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.horaInicio)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.horaFin)
-                                </th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        @foreach (var item in Model.Where(x => x.dia == "Viernes"))
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.nombre)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.horaInicio)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.horaFin)
-                                </td>
-                                <td class="text-center col-lg-12">
-                                    <a class='btn btn-info btn-xs' href="@Url.Action("borrarRefe", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Desinscribirse</a>
+                </table>
+                <br /><br />
+                <h2>Domingo</h2>
+                <br /><br />
+                <table class="table table-striped custab">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaInicio)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.horaFin)
+                            </th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.Where(x => x.dia == "Domingo"))
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaInicio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.horaFin)
+                            </td>
+                            <td class="text-center col-lg-12">
+                                <a class='btn btn-info btn-xs' href="@Url.Action("borrarRefe", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Desinscribirse</a>
 
-                                </td>
-                            </tr>
-                        }
+                            </td>
+                        </tr>
+                    }
 
-                    </table>
+                </table>
 
-                    <h3>Sabado</h3>
-                    <table class="table table-striped custab">
-                        <thead>
-                            <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.nombre)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.horaInicio)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.horaFin)
-                                </th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        @foreach (var item in Model.Where(x => x.dia == "Sabado"))
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.nombre)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.horaInicio)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.horaFin)
-                                </td>
-                                <td class="text-center col-lg-12">
-                                    <a class='btn btn-info btn-xs' href="@Url.Action("borrarRefe", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Desinscribirse</a>
+                <input type="hidden" id="idEscondido" />
 
-                                </td>
-                            </tr>
-                        }
-
-                    </table>
-
-                    <h3>Domingo</h3>
-                    <table class="table table-striped custab">
-                        <thead>
-                            <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.nombre)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.horaInicio)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.horaFin)
-                                </th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        @foreach (var item in Model.Where(x => x.dia == "Domingo"))
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.nombre)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.horaInicio)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.horaFin)
-                                </td>
-                                <td class="text-center col-lg-12">
-                                    <a class='btn btn-info btn-xs' href="@Url.Action("borrarRefe", "Horarios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Desinscribirse</a>
-
-                                </td>
-                            </tr>
-                        }
-
-                    </table>
-
-                    <input type="hidden" id="idEscondido" />
-
-                    <div class="pagination">
-                        <li><a href="#">Prev</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">Next</a></li>
-                    </div>
+                <div class="pagination">
+                    <li><a href="#">Prev</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">Next</a></li>
                 </div>
-                <div class="col-lg-4"></div>
-                <div class="col-lg-4"></div>
             </div>
-            <div class="col-lg-1"></div>
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4"></div>
         </div>
-    </body>
+        <div class="col-lg-1"></div>
+    </div>
+</body>
 </html>
 <script type="text/javascript">
 

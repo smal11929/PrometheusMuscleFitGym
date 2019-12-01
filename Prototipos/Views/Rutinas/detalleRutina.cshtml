@@ -5,60 +5,91 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>detalleRutina</h2>
 
-<div>
-    <h4>Rutinas</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PROMETHEUS GYM</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="PROMETHEUS MUSCLE FIT GYM">
+    <meta name="description" content="Descripción de la WEB">
+    <link href="~/Content/estilosBody.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Scripts/SweerAlert/sweetalert2.min.css" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div style="margin-top: 50px;">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            <div class="container">
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
+                <h2>Detalle de la Rutina</h2>
+                <br /><br />
+                <div>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.nombre)
+                        </dt>
 
-    </dl>
-</div>
+                        <dd>
+                            @Html.DisplayFor(model => model.nombre)
+                        </dd>
 
-<div>
-    <table class="table table-striped custab">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Repeticiones</th>
-                <th>Duracion</th>
-                <th>Series</th>
-                @{
-                    if (ViewBag.Render)
-                    {
-                                <th>Acciones</th>
-                    }
-                 }
-                
-            </tr>
-        </thead>
-        @foreach (var item in ViewBag.Ejercicios)
-        {
-    <tr>
-        <td>@item.descripcion</td>
-        <td>@item.repeticiones</td>
-        <td>@item.duracion</td>
-        <td>@item.series</td>
-        @{
-            if (ViewBag.Render)
-            {
-                <td>@Html.ActionLink("Eliminar", "deleteReferenciaEjercicio", new { id = item.ID })</td>
-            }
-        }
-        
-    </tr>
-        }
+                    </dl>
+                </div>
+
+                <div>
+                    <table class="table table-striped custab">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Repeticiones</th>
+                                <th>Duracion</th>
+                                <th>Series</th>
+                                @{
+                                    if (ViewBag.Render)
+                                    {
+                                        <th>Acciones</th>
+                                    }
+                                }
+
+                            </tr>
+                        </thead>
+                        @foreach (var item in ViewBag.Ejercicios)
+                        {
+                    <tr>
+                        <td>@item.descripcion</td>
+                        <td>@item.repeticiones</td>
+                        <td>@item.duracion</td>
+                        <td>@item.series</td>
+                        @{
+                            if (ViewBag.Render)
+                            {
+                                <a href="@Url.Action("deleteReferenciaEjercicio", "Rutinas", new { id = item.ID })" id="eliminar" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
+                            }
+                        }
+
+                    </tr>
+                        }
 
 
-    </table>
-</div>
-<p style="background-color:black">
-    @Html.ActionLink("Volver", "Index")
-</p>
+                    </table>
+                </div>
+                <br /><br />
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4">
+                        <a class="btn btn-warning btn-block" href="javascript:history.back()"> Volver atras</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+

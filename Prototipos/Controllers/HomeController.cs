@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using DataContracts;
@@ -140,6 +142,53 @@ namespace Prototipos.Controllers
         public ActionResult error404()
         {
             return View();
+        }
+
+        [HttpPost]
+        // Desabilitar el modo protegido del correo 
+        public ActionResult enviarCorreo(FormCollection form)
+        {
+            string nombre = form["nombreMensaje"];
+            string correo = form["correoMensaje"];
+            string mensaje = form["mensajeMensaje"];
+
+            MailMessage ec = new MailMessage();
+
+            if (string.IsNullOrEmpty(correo))
+            {
+
+            }
+
+            else
+            {
+                ec.From = new MailAddress(correo);
+
+                ec.To.Add("smal11929@gmail.com"); // Correo cuenta
+                ec.Subject = nombre;
+                ec.Body = mensaje;
+                ec.IsBodyHtml = true;
+                ec.Priority = MailPriority.Normal;
+            }
+
+
+            SmtpClient smtp = new SmtpClient();
+            string cuentaCorreo = "smal11929@gmail.com"; // Correo cuenta
+            string cuentaContraseña = "Ec123*";// Contraseña cuenta
+            smtp.Credentials = new NetworkCredential(cuentaCorreo, cuentaContraseña);
+
+            smtp.Host = "smtp.live.com";//smtp.live.com || smtp.office365.com || smtp_mail.outlook.com
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+
+            try
+            {
+                smtp.Send(ec);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return View("index");
         }
 
     }

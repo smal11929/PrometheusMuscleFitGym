@@ -4,25 +4,56 @@
     ViewBag.Title = "detallesRutina";
 }
 
-<h2>detallesRutina</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PROMETHEUS GYM</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="PROMETHEUS MUSCLE FIT GYM">
+    <meta name="description" content="Descripción de la WEB">
+    <link href="~/Content/estilosBody.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Scripts/SweerAlert/sweetalert2.min.css" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div style="margin-top: 50px;">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            <div class="container">
+                <h2>Detalle de la Rutina</h2>
 
-<div>
-    <h4>Rutinas</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
+                <div>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.nombre)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.nombre)
+                        </dd>
 
-    </dl>
+                    </dl>
 
-    
-</div>
-<p>
-    @Html.ActionLink("Edit", "modificarRutina", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+                </div>
+                <p>
+                    @Html.ActionLink("Edit", "modificarRutina", new { id = Model.ID })
+                </p>
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4">
+                        <a class="btn btn-warning btn-block" href="javascript:history.back()"> Volver atras</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+

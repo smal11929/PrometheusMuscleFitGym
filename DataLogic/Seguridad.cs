@@ -33,6 +33,13 @@ namespace DataLogic
                     elUsuario.fechaIngreso,
                     elUsuario.fechaPago,
                     elUsuario.IDRutina);
+                    db.SaveChanges();
+
+                    Usuarios user = db.Usuarios.Where(x => x.correo == elUsuario.correo).FirstOrDefault();
+
+                    Horarios horario = new Horarios();
+                    horario.IDUsuario = user.ID;
+                    db.Horarios.Add(horario);
 
                     db.SaveChanges();
                 }
@@ -42,9 +49,9 @@ namespace DataLogic
 
                 throw ex;
             }
-            
 
-            
+
+
         }
 
         public static Usuarios modificarCliente(Usuarios miUser)

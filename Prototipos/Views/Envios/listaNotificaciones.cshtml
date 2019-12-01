@@ -5,42 +5,71 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>listaNotificaciones</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PROMETHEUS GYM</title>
+    <meta charset="UTF-8">
+    <meta name="title" content="PROMETHEUS MUSCLE FIT GYM">
+    <meta name="description" content="Descripción de la WEB">
+    <link href="~/Content/estilosBody.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Scripts/SweerAlert/sweetalert2.min.css" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div style="margin-top: 50px;">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            <div class="container">
+                <h2>Lista de Notificaciones</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.titulo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.mensaje)
-        </th>
-        <th>
-            Acciones
-        </th>
-        <th></th>
-    </tr>
+                <p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.titulo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.mensaje)
+                        </th>
+                        <th>
+                            Acciones
+                        </th>
+                        <th></th>
+                        <th></th>
+                    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.titulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.mensaje)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "updateNotificacion", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "deleteNotificacion", new { id = item.ID })
-            </td>
-        </tr>
-    }
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.titulo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.mensaje)
+                            </td>
+                            <td>
+                                <a class='btn btn-info col-lg-6' href="@Url.Action("updateNotificacion", "Envios" , new { id=item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Modificar</a>
+                            </td>
+                            <td>
+                                <a class='btn btn-info col-lg-6' href="@Url.Action("deleteNotificacion", "Envios", new { id = item.ID })" style="margin-right:3px;"><span class="glyphicon glyphicon-edit"></span> Eliminar</a>
+                            </td>
+                        </tr>
+                    }
 
-</table>
-<div style="background-color:black">
-    @Html.ActionLink("Agregar", "AgregarNotificaciones")
-</div>
+                </table>
+                <div class="col-lg-6">
+                    <a class="btn btn-info" href="@Url.Action("AgregarNotificaciones", "Envios")"> Agregar</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
